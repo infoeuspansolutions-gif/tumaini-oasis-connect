@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tumaini Gardens Isinya — Brochure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--green:#2f6b3b;--clay:#c0653a;--cream:#faf6ec;--ink:#1d2a1f}
+  *{box-sizing:border-box}
+  body{font-family:'Georgia',serif;margin:0;background:var(--cream);color:var(--ink);line-height:1.65}
+  .page{max-width:820px;margin:0 auto;padding:48px 56px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.08)}
+  header{border-bottom:3px solid var(--green);padding-bottom:24px;margin-bottom:32px;display:flex;justify-content:space-between;align-items:end;gap:24px}
+  h1{font-size:42px;margin:0;color:var(--green);letter-spacing:-.02em}
+  h2{color:var(--green);border-left:4px solid var(--clay);padding-left:12px;margin-top:32px}
+  .tag{color:var(--clay);text-transform:uppercase;letter-spacing:.3em;font-size:12px;margin:0 0 6px}
+  .meta{font-size:13px;color:#555;text-align:right}
+  ul{padding-left:20px} li{margin:6px 0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .box{background:var(--cream);border:1px solid #e6dfca;padding:18px;border-radius:10px}
+  .cta{background:var(--green);color:#fff;padding:20px;border-radius:10px;margin-top:24px;text-align:center}
+  .cta a{color:#fff;font-weight:bold}
+  footer{margin-top:40px;border-top:1px solid #ddd;padding-top:16px;font-size:12px;color:#666;display:flex;justify-content:space-between}
+  @media print{body{background:#fff}.page{box-shadow:none;padding:24px}}
+  @media print{.noprint{display:none}}
+  .print-btn{position:fixed;top:20px;right:20px;background:var(--green);color:#fff;border:0;padding:10px 18px;border-radius:30px;cursor:pointer;font-size:14px}
+</style>
+</head>
+<body>
+<button class="noprint print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+<div class="page">
+  <header>
+    <div>
+      <p class="tag">Visitor Manual & Brochure</p>
+      <h1>Tumaini Gardens Isinya</h1>
+      <p style="margin:6px 0 0;color:#666;font-style:italic">Where the gardens whisper hope.</p>
+    </div>
+    <div class="meta">
+      <strong>+254 759 473 510</strong><br>
+      Nairobi-Namanga Hwy<br>
+      Isinya, Kajiado County
+    </div>
+  </header>
+
+  <h2>About Us</h2>
+  <p>Tumaini Gardens is a serene, nature-inspired lodge and event sanctuary located along the Nairobi-Namanga Highway in Kajiado County, immediately after Merishaw School. Approximately 67 km (1.5 hours) from Nairobi, we are a popular destination for getaways, team-building, weddings, and conferences.</p>
+
+  <h2>Getting Here</h2>
+  <ul>
+    <li><strong>From Nairobi:</strong> Take Mombasa Road → turn onto Nairobi-Namanga Highway → drive ~67 km → look for Merishaw School → Tumaini Gardens is immediately after.</li>
+    <li><strong>Distance:</strong> ~60–67 km · <strong>Drive Time:</strong> ~1.5 hours</li>
+    <li><strong>GPS:</strong> Search "Tumaini Gardens Isinya" on Google Maps</li>
+  </ul>
+
+  <h2>Accommodation</h2>
+  <div class="grid">
+    <div class="box"><strong>Garden Cottage</strong><br>Private verandah opening to the lawns. <em>From KES 7,500/night</em>.</div>
+    <div class="box"><strong>Deluxe Suite</strong><br>King bed, en-suite, garden views. <em>From KES 9,500/night</em>.</div>
+    <div class="box"><strong>Twin Cottage</strong><br>Two beds, perfect for friends/family. <em>From KES 8,500/night</em>.</div>
+    <div class="box"><strong>Group Bookings</strong><br>Discounted rates for retreats & teams. Ask reception.</div>
+  </div>
+
+  <h2>Facilities & Activities</h2>
+  <ul>
+    <li>Swimming pool surrounded by palms</li>
+    <li>On-site restaurant — local Kenyan & continental cuisine</li>
+    <li>Spacious conference & meeting halls</li>
+    <li>Manicured event gardens for weddings, parties, picnics</li>
+    <li>Team-building grounds & open lawns</li>
+    <li>Free secure parking · Wi-Fi · 24-hr reception</li>
+  </ul>
+
+  <h2>Events We Host</h2>
+  <ul>
+    <li>Weddings & receptions (garden & indoor)</li>
+    <li>Corporate retreats, board meetings & conferences</li>
+    <li>Team-building & company days</li>
+    <li>Birthdays, anniversaries, honeymoons</li>
+    <li>Church gatherings, school trips, family picnics</li>
+  </ul>
+
+  <h2>How to Book</h2>
+  <p>Bookings are confirmed on first-pay-first-serve basis. A deposit is required to secure dates for events. Contact us directly to discuss tailored packages and current pricing.</p>
+
+  <div class="cta">
+    📞 <a href="tel:+254759473510">+254 759 473 510</a> &nbsp; · &nbsp;
+    💬 <a href="https://wa.me/254759473510">WhatsApp us</a> &nbsp; · &nbsp;
+    🌍 <a href="https://www.tiktok.com/@tumainigardensresort">@tumainigardensresort</a>
+  </div>
+
+  <footer>
+    <span>© Tumaini Gardens Isinya</span>
+    <span>Website by <strong>Emmanuel Ndunda</strong> · 0769 722 940</span>
+  </footer>
+</div>
+</body>
+</html>
