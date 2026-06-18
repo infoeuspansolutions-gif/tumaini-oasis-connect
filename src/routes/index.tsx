@@ -7,15 +7,15 @@ import {
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
 
-import img1 from "@/assets/tumaini1.jpg.asset.json";
-import img2 from "@/assets/tumaini-2.jpg.asset.json";
-import img3 from "@/assets/tumaini-3.jpg.asset.json";
-import img4 from "@/assets/tumaini-4.jpg.asset.json";
-import img5 from "@/assets/tumaini-5.jpg.asset.json";
-import img6 from "@/assets/tumaini-6.jpg.asset.json";
-import img7 from "@/assets/tumaini-7.jpg.asset.json";
-import img8 from "@/assets/tumaini-8.jpg.asset.json";
-import img9 from "@/assets/tumaini-9.jpg.asset.json";
+import img1 from "../assets/tumaini1.jpg.asset.json";
+import img2 from "../assets/tumaini-2.jpg.asset.json";
+import img3 from "../assets/tumaini-3.jpg.asset.json";
+import img4 from "../assets/tumaini-4.jpg.asset.json";
+import img5 from "../assets/tumaini-5.jpg.asset.json";
+import img6 from "../assets/tumaini-6.jpg.asset.json";
+import img7 from "../assets/tumaini-7.jpg.asset.json";
+import img8 from "../assets/tumaini-8.jpg.asset.json";
+import img9 from "../assets/tumaini-9.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
