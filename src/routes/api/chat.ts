@@ -20,16 +20,22 @@ export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const key = process.env.LOVABLE_API_KEY;
-        if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
-        const { messages }: { messages: UIMessage[] } = await request.json();
-        const gateway = createLovableAiGatewayProvider(key);
-        const result = streamText({
-          model: gateway("google/gemini-3-flash-preview"),
-          system: SYSTEM_PROMPT,
-          messages: await convertToModelMessages(messages),
-        });
-        return result.toUIMessageStreamResponse();
+        try {
+          const key = process.env.LOVABLE_API_KEY;
+          if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+          const body = await request.json();
+          const messages = body.messages as UIMessage[];
+          const gateway = createLovableAiGatewayProvider(key);
+          const result = streamText({
+            model: gateway("google/gemini-3-flash-preview"),
+            system: SYSTEM_PROMPT,
+            messages: convertToModelMessages(messages),
+          });
+          return result.toUIMessageStreamResponse();
+        } catch (err) {
+          console.error("chat error", err);
+          return new Response(JSON.stringify({ error: String(err) }), { status: 500, headers: { "content-type": "application/json" } });
+        }
       },
     },
   },
