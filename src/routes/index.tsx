@@ -7,15 +7,16 @@ import {
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
 
-import img1 from "../assets/tumaini1.jpg.asset.json";
-import img2 from "../assets/tumaini-2.jpg.asset.json";
-import img3 from "../assets/tumaini-3.jpg.asset.json";
-import img4 from "../assets/tumaini-4.jpg.asset.json";
-import img5 from "../assets/tumaini-5.jpg.asset.json";
-import img6 from "../assets/tumaini-6.jpg.asset.json";
-import img7 from "../assets/tumaini-7.jpg.asset.json";
-import img8 from "../assets/tumaini-8.jpg.asset.json";
-import img9 from "../assets/tumaini-9.jpg.asset.json";
+const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
+const img2 = { url: "/__l5e/assets-v1/c30c5df9-2f91-4d48-b171-228316c0156d/tumaini-2.jpg" };
+const img3 = { url: "/__l5e/assets-v1/058c1814-74f6-4099-bdfd-1b3b51f1daaa/tumaini-3.jpg" };
+const img4 = { url: "/__l5e/assets-v1/ed0bf124-d13d-41f9-8613-78b01b8b9b4e/tumaini-4.jpg" };
+const img5 = { url: "/__l5e/assets-v1/f2c1729e-9e37-46db-a643-e142da5cdd33/tumaini-5.jpg" };
+const img6 = { url: "/__l5e/assets-v1/fb01be86-51cc-4381-aae4-9d1e54644ff4/tumaini-6.jpg" };
+const img7 = { url: "/__l5e/assets-v1/de1ad3c7-fce9-4f24-a96c-2b427f1cf6fb/tumaini-7.jpg" };
+const img8 = { url: "/__l5e/assets-v1/6a1ce9bc-bfac-4eef-b159-8bf6b7ee12f0/tumaini-8.jpg" };
+const img9 = { url: "/__l5e/assets-v1/f3fe79d8-ea9e-48fc-922d-59408b8bb2d1/tumaini-9.jpg" };
+void img8;
 
 export const Route = createFileRoute("/")({
   head: () => ({
