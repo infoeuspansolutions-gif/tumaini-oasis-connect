@@ -83,6 +83,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Tumaini Gardens Isinya" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Tumaini Gardens Isinya" },
+      { name: "twitter:title", content: "Tumaini Gardens Isinya" },
+      { property: "og:description", content: "Serene lodge & event venue along the Nairobi-Namanga Highway in Kajiado." },
+      { name: "twitter:description", content: "Serene lodge & event venue along the Nairobi-Namanga Highway in Kajiado." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/rWOckpsMvZVIDhjVebuHjqyaKDr1/social-images/social-1781859242604-images_(2).webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/rWOckpsMvZVIDhjVebuHjqyaKDr1/social-images/social-1781859242604-images_(2).webp" },
     ],
     links: [
       {
