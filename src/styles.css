@@ -53,7 +53,7 @@
   --secondary: oklch(0.94 0.03 80);
   --secondary-foreground: oklch(0.25 0.05 145);
   --muted: oklch(0.95 0.02 90);
-  --muted-foreground: oklch(0.48 0.03 130);
+  --muted-foreground: oklch(0.32 0.04 140);
   --accent: oklch(0.62 0.16 45);            /* terracotta clay */
   --accent-foreground: oklch(0.99 0.01 80);
   --destructive: oklch(0.55 0.22 27);
@@ -99,9 +99,11 @@
     background: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; font-weight: 700; }
+  p, li, span, a { font-weight: 500; }
 }
 
 @layer utilities {
@@ -130,3 +132,29 @@
   100% { box-shadow: 0 0 0 0 oklch(0.65 0.2 145 / 0); }
 }
 .animate-pulse-ring { animation: pulse-ring 2s infinite; }
+
+@keyframes blob {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(30px,-40px) scale(1.1); }
+  66% { transform: translate(-20px,30px) scale(0.95); }
+}
+.animate-blob { animation: blob 14s ease-in-out infinite; }
+
+@keyframes shimmer-bg {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: shimmer-bg 8s ease infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+.tilt-card { transform-style: preserve-3d; perspective: 1000px; }
+.tilt-card-inner { transition: transform 0.6s cubic-bezier(.2,.8,.2,1); transform-style: preserve-3d; }
+.tilt-card:hover .tilt-card-inner { transform: rotateX(6deg) rotateY(-8deg) translateZ(20px); }

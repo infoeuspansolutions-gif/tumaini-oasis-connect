@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
-  MapPin, Phone, Mail, Users, Calendar, Wifi, Car, Utensils, Waves,
-  Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download,
+  MapPin, Phone, Users, Calendar, Wifi, Car, Utensils, Waves,
+  Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download, Play,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
 
+const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
 const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
 const img2 = { url: "/__l5e/assets-v1/c30c5df9-2f91-4d48-b171-228316c0156d/tumaini-2.jpg" };
 const img3 = { url: "/__l5e/assets-v1/058c1814-74f6-4099-bdfd-1b3b51f1daaa/tumaini-3.jpg" };
@@ -16,7 +17,16 @@ const img6 = { url: "/__l5e/assets-v1/fb01be86-51cc-4381-aae4-9d1e54644ff4/tumai
 const img7 = { url: "/__l5e/assets-v1/de1ad3c7-fce9-4f24-a96c-2b427f1cf6fb/tumaini-7.jpg" };
 const img8 = { url: "/__l5e/assets-v1/6a1ce9bc-bfac-4eef-b159-8bf6b7ee12f0/tumaini-8.jpg" };
 const img9 = { url: "/__l5e/assets-v1/f3fe79d8-ea9e-48fc-922d-59408b8bb2d1/tumaini-9.jpg" };
-void img8;
+void img8; void img5;
+// New uploads
+const imgEntrance = { url: "/__l5e/assets-v1/a09602b8-5477-448e-bd06-f41409fd8ae8/tumaini-entrance.jpg" };
+const imgTeam = { url: "/__l5e/assets-v1/16f40485-5099-4431-90eb-83703d45fe5b/tumaini-team.jpg" };
+const imgRoom = { url: "/__l5e/assets-v1/445a7b73-a853-40bc-812b-d663c2b045ed/tumaini-room.jpg" };
+const imgGarden = { url: "/__l5e/assets-v1/96471cd7-a8d5-4cda-9d64-101c9841e8e6/tumaini-garden.jpg" };
+const imgPool = { url: "/__l5e/assets-v1/95accc61-7d29-4561-ac3f-98b95457b149/tumaini-pool.jpg" };
+const imgPath = { url: "/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597964/tumaini-path.jpg" };
+
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,6 +80,7 @@ function Home() {
       <Stay />
       <Facilities />
       <Events />
+      <Videos />
       <Gallery />
       <Testimonials />
       <Contact />
@@ -84,7 +95,10 @@ function Hero() {
   return (
     <section id="home" className="relative min-h-[100svh] w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img src={img4.url} alt="Tumaini Gardens cottages with green roofs" className="h-full w-full object-cover" />
+        <img src={imgGarden.url} alt="Tumaini Gardens at sunset with bougainvillea" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-accent/40 to-primary/70 animate-gradient" />
+        <motion.div animate={{ scale:[1,1.2,1], opacity:[0.4,0.7,0.4] }} transition={{ duration:8, repeat:Infinity }} className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl animate-blob" />
+        <motion.div animate={{ scale:[1,1.3,1], opacity:[0.3,0.6,0.3] }} transition={{ duration:10, repeat:Infinity, delay:1 }} className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-primary/50 blur-3xl animate-blob" />
         <div className="absolute inset-0 bg-gradient-hero" />
       </div>
 
@@ -189,33 +203,40 @@ function About() {
 
 function Stay() {
   const rooms = [
-    { img: img4.url, name: "Garden Cottage", desc: "Standalone cottage with private verandah opening to the lawns.", price: "From KES 7,500 / night" },
-    { img: img5.url, name: "Deluxe Suite", desc: "Spacious suite with king bed, en-suite bathroom and garden views.", price: "From KES 9,500 / night" },
-    { img: img2.url, name: "Twin Cottage", desc: "Perfect for friends or family — two beds, shared verandah, peace.", price: "From KES 8,500 / night" },
+    { img: imgRoom.url, name: "Deluxe Suite", desc: "King bed, en-suite, fresh linens and garden views from your window.", price: "From KES 9,500 / night", color: "from-emerald-500 to-lime-500" },
+    { img: img4.url, name: "Garden Cottage", desc: "Standalone cottage with private verandah opening to the lawns.", price: "From KES 7,500 / night", color: "from-orange-500 to-rose-500" },
+    { img: img2.url, name: "Twin Cottage", desc: "Perfect for friends or family — two beds, shared verandah, peace.", price: "From KES 8,500 / night", color: "from-sky-500 to-indigo-500" },
   ];
   return (
-    <section id="stay" className="bg-secondary/40 py-24">
-      <div className="mx-auto max-w-7xl px-5">
+    <section id="stay" className="relative overflow-hidden bg-gradient-to-br from-secondary/60 via-background to-accent/10 py-24">
+      <div className="absolute -top-20 right-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-blob" />
+      <div className="absolute bottom-0 -left-20 h-80 w-80 rounded-full bg-primary/20 blur-3xl animate-blob" />
+      <div className="relative mx-auto max-w-7xl px-5">
         <motion.div {...fadeUp} className="max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">Where you'll stay</p>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">Cottages built for slow mornings.</h2>
+          <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold">Where you'll stay</p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl text-foreground">Cottages built for <span className="text-gradient-leaf">slow mornings</span>.</h2>
         </motion.div>
         <div className="mt-14 grid gap-7 md:grid-cols-3">
           {rooms.map((r, i) => (
             <motion.article key={r.name} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-3xl bg-card shadow-soft transition hover:shadow-glow hover:-translate-y-1">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={r.img} alt={r.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-2xl">{r.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{r.desc}</p>
-                <div className="mt-5 flex items-center justify-between">
-                  <span className="text-sm font-medium text-primary">{r.price}</span>
-                  <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer"
-                     className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline">
-                    Reserve <ChevronRight className="h-3.5 w-3.5" />
-                  </a>
+              whileHover={{ y: -8, rotateX: 4, rotateY: -4 }}
+              style={{ transformPerspective: 1000 }}
+              className="tilt-card group overflow-hidden rounded-3xl bg-card shadow-soft transition hover:shadow-glow">
+              <div className="tilt-card-inner">
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <img src={r.img} alt={r.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${r.color} opacity-0 mix-blend-overlay transition group-hover:opacity-60`} />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl text-foreground font-bold">{r.name}</h3>
+                  <p className="mt-2 text-sm text-foreground/80 leading-relaxed">{r.desc}</p>
+                  <div className="mt-5 flex items-center justify-between">
+                    <span className="text-sm font-bold text-primary">{r.price}</span>
+                    <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer"
+                       className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
+                      Reserve <ChevronRight className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.article>
@@ -225,6 +246,55 @@ function Stay() {
     </section>
   );
 }
+
+function Videos() {
+  const vids = [
+    { id: "APjGIwrDstI", t: "A walk through Tumaini Gardens" },
+    { id: "q2nb1Qub30U", t: "Tumaini Gardens — Resort tour" },
+  ];
+  return (
+    <section id="videos" className="relative overflow-hidden bg-gradient-to-b from-background via-accent/10 to-background py-24">
+      <div className="absolute top-20 left-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl animate-blob" />
+      <div className="relative mx-auto max-w-7xl px-5">
+        <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold flex items-center justify-center gap-2">
+            <Play className="h-4 w-4" /> Watch Tumaini
+          </p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl text-foreground">See the <span className="text-gradient-leaf">gardens</span> come alive.</h2>
+          <p className="mt-4 text-foreground/80">Press play and step into the lawns, the pool and the warm Tumaini welcome.</p>
+        </motion.div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {vids.map((v, i) => (
+            <motion.div key={v.id} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ scale: 1.02, rotateY: i === 0 ? 3 : -3 }}
+              style={{ transformPerspective: 1200 }}
+              className="overflow-hidden rounded-3xl shadow-glow ring-2 ring-primary/20">
+              <div className="aspect-video">
+                <iframe
+                  src={`https://www.youtube.com/embed/${v.id}`}
+                  title={v.t}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="bg-card p-5">
+                <p className="font-display text-lg font-bold">{v.t}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <a href="https://www.tiktok.com/@the.kenya.nilotes/video/7611793710694550792" target="_blank" rel="noreferrer"
+             className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-7 py-3.5 font-bold text-accent-foreground shadow-glow hover:opacity-95">
+            <Play className="h-4 w-4" /> Watch on TikTok
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function Facilities() {
   const list = [
@@ -297,7 +367,7 @@ function Events() {
 }
 
 function Gallery() {
-  const photos = [img4, img2, img6, img7, img5, img9, img1, img3];
+  const photos = [imgPool, imgEntrance, imgGarden, imgRoom, imgTeam, imgPath, img4, img2, img6, img7, img1, img9];
   return (
     <section id="gallery" className="mx-auto max-w-7xl px-5 py-24">
       <motion.div {...fadeUp} className="flex items-end justify-between flex-wrap gap-4">
@@ -415,7 +485,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-full bg-gradient-warm font-display text-xl">T</div>
+            <img src={logo.url} alt="Tumaini Gardens logo" className="h-14 w-14 rounded-full bg-black object-contain p-1.5 ring-2 ring-white/40" />
             <div>
               <p className="font-display text-2xl">Tumaini Gardens</p>
               <p className="text-xs uppercase tracking-widest opacity-80">Isinya · Kajiado · Kenya</p>

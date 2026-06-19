@@ -23,10 +23,10 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
         <Link to="/" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-leaf text-primary-foreground font-display text-lg">T</div>
+          <img src="/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" alt="Tumaini Gardens logo" className="h-11 w-11 rounded-full bg-black object-contain p-1 ring-2 ring-primary/30" />
           <div className="leading-tight">
-            <p className="font-display text-lg">Tumaini Gardens</p>
-            <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Isinya · Kajiado</p>
+            <p className="font-display text-lg font-bold text-foreground">Tumaini Gardens</p>
+            <p className="text-[10px] uppercase tracking-widest text-primary font-semibold">Isinya · Kajiado</p>
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-7 text-sm">
