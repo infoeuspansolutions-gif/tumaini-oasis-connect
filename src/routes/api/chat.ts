@@ -1,12 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { convertToModelMessages, streamText, type UIMessage } from "ai";
-
-import {
-  createLovableAiGatewayProvider,
-  getLovableAiGatewayResponseHeaders,
-  getLovableAiGatewayRunId,
-  withLovableAiGatewayRunIdHeader,
-} from "@/lib/ai-gateway.server";
+import type { UIMessage } from "ai";
 
 export const Route = createFileRoute("/api/chat")({
   server: {
@@ -27,6 +20,14 @@ We offer: comfortable garden cottages, swimming pool surrounded by palms, on-sit
 Contact: +254 759 473 510 (call or WhatsApp).
 
 Be warm, concise, helpful. Use light markdown. Always invite guests to book via WhatsApp +254 759 473 510. If asked something specific (rates, availability) suggest contacting reception.`;
+
+          const { convertToModelMessages, streamText } = await import("ai");
+          const {
+            createLovableAiGatewayProvider,
+            getLovableAiGatewayResponseHeaders,
+            getLovableAiGatewayRunId,
+            withLovableAiGatewayRunIdHeader,
+          } = await import("@/lib/ai-gateway.server");
 
           const initialRunId = getLovableAiGatewayRunId(request);
           const gateway = createLovableAiGatewayProvider(key, initialRunId);
