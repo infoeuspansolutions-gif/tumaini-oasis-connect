@@ -367,7 +367,7 @@ function Events() {
 }
 
 function Gallery() {
-  const photos = [img4, img2, img6, img7, img5, img9, img1, img3];
+  const photos = [imgPool, imgEntrance, imgGarden, imgRoom, imgTeam, imgPath, img4, img2, img6, img7, img1, img9];
   return (
     <section id="gallery" className="mx-auto max-w-7xl px-5 py-24">
       <motion.div {...fadeUp} className="flex items-end justify-between flex-wrap gap-4">
