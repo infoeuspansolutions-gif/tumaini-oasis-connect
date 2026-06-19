@@ -95,7 +95,10 @@ function Hero() {
   return (
     <section id="home" className="relative min-h-[100svh] w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img src={img4.url} alt="Tumaini Gardens cottages with green roofs" className="h-full w-full object-cover" />
+        <img src={imgGarden.url} alt="Tumaini Gardens at sunset with bougainvillea" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-accent/40 to-primary/70 animate-gradient" />
+        <motion.div animate={{ scale:[1,1.2,1], opacity:[0.4,0.7,0.4] }} transition={{ duration:8, repeat:Infinity }} className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl animate-blob" />
+        <motion.div animate={{ scale:[1,1.3,1], opacity:[0.3,0.6,0.3] }} transition={{ duration:10, repeat:Infinity, delay:1 }} className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-primary/50 blur-3xl animate-blob" />
         <div className="absolute inset-0 bg-gradient-hero" />
       </div>
 
