@@ -80,6 +80,7 @@ function Home() {
       <Stay />
       <Facilities />
       <Events />
+      <Videos />
       <Gallery />
       <Testimonials />
       <Contact />
