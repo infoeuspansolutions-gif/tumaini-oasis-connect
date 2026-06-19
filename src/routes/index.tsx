@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
-  MapPin, Phone, Mail, Users, Calendar, Wifi, Car, Utensils, Waves,
-  Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download,
+  MapPin, Phone, Users, Calendar, Wifi, Car, Utensils, Waves,
+  Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download, Play,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
 
+const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
 const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
 const img2 = { url: "/__l5e/assets-v1/c30c5df9-2f91-4d48-b171-228316c0156d/tumaini-2.jpg" };
 const img3 = { url: "/__l5e/assets-v1/058c1814-74f6-4099-bdfd-1b3b51f1daaa/tumaini-3.jpg" };
@@ -17,6 +18,9 @@ const img7 = { url: "/__l5e/assets-v1/de1ad3c7-fce9-4f24-a96c-2b427f1cf6fb/tumai
 const img8 = { url: "/__l5e/assets-v1/6a1ce9bc-bfac-4eef-b159-8bf6b7ee12f0/tumaini-8.jpg" };
 const img9 = { url: "/__l5e/assets-v1/f3fe79d8-ea9e-48fc-922d-59408b8bb2d1/tumaini-9.jpg" };
 void img8;
+// New uploads
+const imgEntrance = { url: "/__l5e/assets-v1/" };
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
