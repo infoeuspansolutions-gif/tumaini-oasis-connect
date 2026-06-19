@@ -485,7 +485,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-full bg-gradient-warm font-display text-xl">T</div>
+            <img src={logo.url} alt="Tumaini Gardens logo" className="h-14 w-14 rounded-full bg-black object-contain p-1.5 ring-2 ring-white/40" />
             <div>
               <p className="font-display text-2xl">Tumaini Gardens</p>
               <p className="text-xs uppercase tracking-widest opacity-80">Isinya · Kajiado · Kenya</p>
