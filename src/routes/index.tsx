@@ -203,33 +203,40 @@ function About() {
 
 function Stay() {
   const rooms = [
-    { img: img4.url, name: "Garden Cottage", desc: "Standalone cottage with private verandah opening to the lawns.", price: "From KES 7,500 / night" },
-    { img: img5.url, name: "Deluxe Suite", desc: "Spacious suite with king bed, en-suite bathroom and garden views.", price: "From KES 9,500 / night" },
-    { img: img2.url, name: "Twin Cottage", desc: "Perfect for friends or family — two beds, shared verandah, peace.", price: "From KES 8,500 / night" },
+    { img: imgRoom.url, name: "Deluxe Suite", desc: "King bed, en-suite, fresh linens and garden views from your window.", price: "From KES 9,500 / night", color: "from-emerald-500 to-lime-500" },
+    { img: img4.url, name: "Garden Cottage", desc: "Standalone cottage with private verandah opening to the lawns.", price: "From KES 7,500 / night", color: "from-orange-500 to-rose-500" },
+    { img: img2.url, name: "Twin Cottage", desc: "Perfect for friends or family — two beds, shared verandah, peace.", price: "From KES 8,500 / night", color: "from-sky-500 to-indigo-500" },
   ];
   return (
-    <section id="stay" className="bg-secondary/40 py-24">
-      <div className="mx-auto max-w-7xl px-5">
+    <section id="stay" className="relative overflow-hidden bg-gradient-to-br from-secondary/60 via-background to-accent/10 py-24">
+      <div className="absolute -top-20 right-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-blob" />
+      <div className="absolute bottom-0 -left-20 h-80 w-80 rounded-full bg-primary/20 blur-3xl animate-blob" />
+      <div className="relative mx-auto max-w-7xl px-5">
         <motion.div {...fadeUp} className="max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">Where you'll stay</p>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">Cottages built for slow mornings.</h2>
+          <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold">Where you'll stay</p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl text-foreground">Cottages built for <span className="text-gradient-leaf">slow mornings</span>.</h2>
         </motion.div>
         <div className="mt-14 grid gap-7 md:grid-cols-3">
           {rooms.map((r, i) => (
             <motion.article key={r.name} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-3xl bg-card shadow-soft transition hover:shadow-glow hover:-translate-y-1">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={r.img} alt={r.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-2xl">{r.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{r.desc}</p>
-                <div className="mt-5 flex items-center justify-between">
-                  <span className="text-sm font-medium text-primary">{r.price}</span>
-                  <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer"
-                     className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline">
-                    Reserve <ChevronRight className="h-3.5 w-3.5" />
-                  </a>
+              whileHover={{ y: -8, rotateX: 4, rotateY: -4 }}
+              style={{ transformPerspective: 1000 }}
+              className="tilt-card group overflow-hidden rounded-3xl bg-card shadow-soft transition hover:shadow-glow">
+              <div className="tilt-card-inner">
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <img src={r.img} alt={r.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${r.color} opacity-0 mix-blend-overlay transition group-hover:opacity-60`} />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl text-foreground font-bold">{r.name}</h3>
+                  <p className="mt-2 text-sm text-foreground/80 leading-relaxed">{r.desc}</p>
+                  <div className="mt-5 flex items-center justify-between">
+                    <span className="text-sm font-bold text-primary">{r.price}</span>
+                    <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer"
+                       className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
+                      Reserve <ChevronRight className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.article>
@@ -239,6 +246,55 @@ function Stay() {
     </section>
   );
 }
+
+function Videos() {
+  const vids = [
+    { id: "APjGIwrDstI", t: "A walk through Tumaini Gardens" },
+    { id: "q2nb1Qub30U", t: "Tumaini Gardens — Resort tour" },
+  ];
+  return (
+    <section id="videos" className="relative overflow-hidden bg-gradient-to-b from-background via-accent/10 to-background py-24">
+      <div className="absolute top-20 left-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl animate-blob" />
+      <div className="relative mx-auto max-w-7xl px-5">
+        <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold flex items-center justify-center gap-2">
+            <Play className="h-4 w-4" /> Watch Tumaini
+          </p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl text-foreground">See the <span className="text-gradient-leaf">gardens</span> come alive.</h2>
+          <p className="mt-4 text-foreground/80">Press play and step into the lawns, the pool and the warm Tumaini welcome.</p>
+        </motion.div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {vids.map((v, i) => (
+            <motion.div key={v.id} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ scale: 1.02, rotateY: i === 0 ? 3 : -3 }}
+              style={{ transformPerspective: 1200 }}
+              className="overflow-hidden rounded-3xl shadow-glow ring-2 ring-primary/20">
+              <div className="aspect-video">
+                <iframe
+                  src={`https://www.youtube.com/embed/${v.id}`}
+                  title={v.t}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="bg-card p-5">
+                <p className="font-display text-lg font-bold">{v.t}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <a href="https://www.tiktok.com/@the.kenya.nilotes/video/7611793710694550792" target="_blank" rel="noreferrer"
+             className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-7 py-3.5 font-bold text-accent-foreground shadow-glow hover:opacity-95">
+            <Play className="h-4 w-4" /> Watch on TikTok
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function Facilities() {
   const list = [
