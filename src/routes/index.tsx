@@ -19,7 +19,13 @@ const img8 = { url: "/__l5e/assets-v1/6a1ce9bc-bfac-4eef-b159-8bf6b7ee12f0/tumai
 const img9 = { url: "/__l5e/assets-v1/f3fe79d8-ea9e-48fc-922d-59408b8bb2d1/tumaini-9.jpg" };
 void img8;
 // New uploads
-const imgEntrance = { url: "/__l5e/assets-v1/" };
+const imgEntrance = { url: "/__l5e/assets-v1/a09602b8-5477-448e-bd06-f41409fd8ae8/tumaini-entrance.jpg" };
+const imgTeam = { url: "/__l5e/assets-v1/16f40485-5099-4431-90eb-83703d45fe5b/tumaini-team.jpg" };
+const imgRoom = { url: "/__l5e/assets-v1/445a7b73-a853-40bc-812b-d663c2b045ed/tumaini-room.jpg" };
+const imgGarden = { url: "/__l5e/assets-v1/96471cd7-a8d5-4cda-9d64-101c9841e8e6/tumaini-garden.jpg" };
+const imgPool = { url: "/__l5e/assets-v1/95accc61-7d29-4561-ac3f-98b95457b149/tumaini-pool.jpg" };
+const imgPath = { url: "/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597964/tumaini-path.jpg" };
+
 
 
 export const Route = createFileRoute("/")({
