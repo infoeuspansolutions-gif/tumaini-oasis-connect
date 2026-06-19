@@ -53,7 +53,7 @@
   --secondary: oklch(0.94 0.03 80);
   --secondary-foreground: oklch(0.25 0.05 145);
   --muted: oklch(0.95 0.02 90);
-  --muted-foreground: oklch(0.48 0.03 130);
+  --muted-foreground: oklch(0.32 0.04 140);
   --accent: oklch(0.62 0.16 45);            /* terracotta clay */
   --accent-foreground: oklch(0.99 0.01 80);
   --destructive: oklch(0.55 0.22 27);
