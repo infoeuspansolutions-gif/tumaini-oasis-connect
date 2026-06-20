@@ -91,6 +91,7 @@ function Home() {
       <Footer />
       <WhatsAppButton />
       <AiChatWidget />
+      <WelcomeRobot />
     </div>
   );
 }
