@@ -75,11 +75,14 @@ function Home() {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
+      <OffersMarquee />
       <Stats />
       <About />
       <Stay />
+      <Catering />
       <Facilities />
       <Events />
+      <Adverts />
       <Videos />
       <Gallery />
       <Testimonials />
@@ -88,6 +91,109 @@ function Home() {
       <WhatsAppButton />
       <AiChatWidget />
     </div>
+  );
+}
+
+function OffersMarquee() {
+  const items = [
+    "🎉 Wedding Package from KES 3,500 pp",
+    "🍖 Nyama Choma Sundays — all you can eat",
+    "💼 Full-day Conference @ KES 2,500 pp",
+    "🏊 Pool Day Pass — KES 500",
+    "🌿 Team Building Specials this season",
+    "🎂 Birthday Garden Parties — Book now!",
+    "📞 WhatsApp +254 759 473 510",
+  ];
+  const row = [...items, ...items];
+  return (
+    <div className="relative overflow-hidden border-y bg-gradient-warm py-3 text-primary-foreground">
+      <div className="flex w-max gap-10 animate-marquee whitespace-nowrap font-display text-base md:text-lg">
+        {row.map((t, i) => (
+          <span key={i} className="flex items-center gap-2"><Sparkles className="h-4 w-4" />{t}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Catering() {
+  const menus = [
+    { title: "Wedding Package", price: "from KES 3,500 pp", items: ["Welcome drinks", "Buffet (3 mains, 2 sides)", "Roast goat station", "Cake & dessert", "Soft drinks & juices"], img: imgGarden.url, color: "from-accent/80 to-primary/60" },
+    { title: "Conference Lunch", price: "from KES 2,500 pp", items: ["2 tea breaks (snacks)", "Hot buffet lunch", "Bottled water", "Boardroom setup", "Projector & Wi-Fi"], img: imgTeam.url, color: "from-primary/80 to-leaf/60" },
+    { title: "Outside Catering", price: "Custom quote", items: ["Weddings & ruracios", "Corporate launches", "Church & school events", "Decor & tents", "Trained waiters"], img: imgRoom.url, color: "from-leaf/80 to-accent/60" },
+  ];
+  return (
+    <section id="catering" className="relative py-24">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,oklch(0.95_0.05_90),transparent_70%)]" />
+      <div className="mx-auto max-w-7xl px-6">
+        <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} className="mx-auto mb-14 max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-accent/15 px-4 py-1.5 text-sm font-semibold text-accent"><Utensils className="h-4 w-4" /> Catering & Cuisine</span>
+          <h2 className="mt-4 text-4xl md:text-5xl font-display">Flavours that <span className="text-gradient-leaf">tell a story</span></h2>
+          <p className="mt-4 text-lg text-foreground/80">From intimate dinners to 500-guest weddings — our chefs bring Kenyan warmth to every plate, on-site or anywhere you need us.</p>
+        </motion.div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {menus.map((m, i) => (
+            <motion.div key={m.title} initial={{ opacity:0, y:30 }} whileInView={{ opacity:1, y:0 }} transition={{ delay: i*0.15 }} viewport={{ once:true }} whileHover={{ y:-10, rotateX:3, rotateY:-3 }} className="tilt-card group relative overflow-hidden rounded-3xl shadow-soft hover:shadow-glow">
+              <div className="tilt-card-inner">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={m.img} alt={m.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${m.color} mix-blend-multiply`} />
+                  <div className="absolute bottom-3 left-4 text-primary-foreground">
+                    <p className="font-display text-2xl">{m.title}</p>
+                    <p className="text-sm opacity-90">{m.price}</p>
+                  </div>
+                </div>
+                <div className="bg-card p-6">
+                  <ul className="space-y-2 text-sm text-foreground/85">
+                    {m.items.map((x) => (
+                      <li key={x} className="flex items-start gap-2"><ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{x}</li>
+                    ))}
+                  </ul>
+                  <a href="https://wa.me/254759473510?text=Hi%20Tumaini%2C%20I%27d%20like%20a%20catering%20quote" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90">Request quote <ChevronRight className="h-4 w-4" /></a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Adverts() {
+  const ads = [
+    { tag: "LIMITED", title: "Honeymoon Escape", body: "2 nights cottage + breakfast + candle-lit dinner.", price: "KES 18,500", img: imgPool.url },
+    { tag: "WEEKEND", title: "Family Pool Day", body: "Lunch buffet + pool access for 4 guests.", price: "KES 4,800", img: imgPath.url },
+    { tag: "CORPORATE", title: "Team Retreat", body: "Full-day team building + lunch + facilitator.", price: "KES 3,200 pp", img: imgEntrance.url },
+  ];
+  return (
+    <section id="offers" className="relative py-24">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-secondary/40 to-background" />
+      <motion.div animate={{ rotate:[0,360] }} transition={{ duration:60, repeat:Infinity, ease:"linear" }} className="absolute right-10 top-20 -z-10 h-72 w-72 rounded-full bg-gradient-warm opacity-20 blur-3xl" />
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary"><Star className="h-4 w-4" /> Hot Offers</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-display">This season at <span className="text-gradient-leaf">Tumaini</span></h2>
+          </div>
+          <p className="max-w-md text-foreground/75">Hand-crafted packages — book direct on WhatsApp for the best rates.</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {ads.map((a, i) => (
+            <motion.a key={a.title} href="https://wa.me/254759473510" target="_blank" rel="noopener noreferrer" initial={{ opacity:0, scale:0.95 }} whileInView={{ opacity:1, scale:1 }} transition={{ delay:i*0.12 }} viewport={{ once:true }} whileHover={{ y:-6 }} className="group relative block overflow-hidden rounded-3xl shadow-soft hover:shadow-glow">
+              <img src={a.img} alt={a.title} className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+              <span className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground shadow-glow animate-pulse-ring">{a.tag}</span>
+              <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                <p className="font-display text-2xl">{a.title}</p>
+                <p className="mt-1 text-sm opacity-90">{a.body}</p>
+                <p className="mt-2 text-lg font-bold text-accent-foreground"><span className="rounded-full bg-accent px-3 py-1">{a.price}</span></p>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
