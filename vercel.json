@@ -1,10 +1,9 @@
 {
-  "buildCommand": "bun run build",
-  "outputDirectory": ".vercel/output",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "DEPLOY_TARGET=vercel bun run build",
+  "installCommand": "bun install",
   "framework": null,
-  "env": {
-    "DEPLOY_TARGET": "vercel"
-  },
+  "outputDirectory": ".vercel/output",
   "build": {
     "env": {
       "DEPLOY_TARGET": "vercel"
