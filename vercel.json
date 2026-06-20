@@ -1,0 +1,13 @@
+{
+  "buildCommand": "bun run build",
+  "outputDirectory": ".vercel/output",
+  "framework": null,
+  "env": {
+    "DEPLOY_TARGET": "vercel"
+  },
+  "build": {
+    "env": {
+      "DEPLOY_TARGET": "vercel"
+    }
+  }
+}
