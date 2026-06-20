@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
+import { WelcomeRobot } from "@/components/welcome-robot";
 
 const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
 const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
@@ -90,6 +91,7 @@ function Home() {
       <Footer />
       <WhatsAppButton />
       <AiChatWidget />
+      <WelcomeRobot />
     </div>
   );
 }
