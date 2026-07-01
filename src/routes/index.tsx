@@ -7,6 +7,7 @@ import {
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
 import { WelcomeRobot } from "@/components/welcome-robot";
+import { UpdatesFeed } from "@/components/updates-feed";
 
 const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
 const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
@@ -85,6 +86,7 @@ function Home() {
       <Events />
       <Adverts />
       <Videos />
+      <UpdatesFeed />
       <Gallery />
       <Testimonials />
       <Contact />
@@ -620,12 +622,29 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-6 text-sm md:flex-row">
-          <p className="opacity-80">© {new Date().getFullYear()} Tumaini Gardens Isinya. All rights reserved.</p>
-          <p className="rounded-full bg-gradient-warm px-5 py-2 text-accent-foreground font-medium">
-            Website by <strong>Emmanuel Ndunda</strong> · <a href="tel:+254769722940" className="underline">0769 722 940</a>
-          </p>
+      <div className="border-t border-white/10 bg-black/20">
+        <div className="mx-auto max-w-7xl px-5 py-8 grid gap-6 md:grid-cols-[1fr_auto] items-center">
+          <div className="flex flex-col md:flex-row md:items-center gap-4">
+            <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-accent via-primary to-leaf text-primary-foreground font-display text-2xl font-bold shadow-glow">
+              ES
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-widest opacity-70">Website designed & developed by</p>
+              <p className="font-display text-xl font-bold">Emmanuel Ndunda</p>
+              <p className="text-sm opacity-90">Developer / CEO — <strong>Euspan Solutions</strong> · Best ICT & Digital Providers</p>
+              <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+                <a href="tel:+254769722940" className="underline hover:text-accent">📞 0769 722 940</a>
+                <a href="mailto:infoeuspansolutions@gmail.com" className="underline hover:text-accent">✉ infoeuspansolutions@gmail.com</a>
+                <a href="https://www.euspansolutions.co.ke/" target="_blank" rel="noreferrer" className="underline hover:text-accent">🌐 euspansolutions.co.ke</a>
+              </div>
+            </div>
+          </div>
+          <Link to="/admin" className="justify-self-start md:justify-self-end inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 text-sm">
+            🔐 Admin Portal
+          </Link>
+        </div>
+        <div className="mx-auto max-w-7xl px-5 pb-6 text-xs opacity-70 text-center md:text-left">
+          © {new Date().getFullYear()} Tumaini Gardens Isinya. All rights reserved.
         </div>
       </div>
     </footer>
