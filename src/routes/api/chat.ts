@@ -13,6 +13,29 @@ export const Route = createFileRoute("/api/chat")({
           const body = (await request.json()) as { messages?: UIMessage[] };
           const messages = body.messages ?? [];
 
+          // Pull latest published posts as live knowledge context
+          let dynamicContext = "";
+          try {
+            const supaUrl = process.env.SUPABASE_URL;
+            const supaKey = process.env.SUPABASE_PUBLISHABLE_KEY;
+            if (supaUrl && supaKey) {
+              const r = await fetch(
+                `${supaUrl}/rest/v1/posts?select=title,description,department,created_at&published=eq.true&order=created_at.desc&limit=25`,
+                { headers: { apikey: supaKey, Authorization: `Bearer ${supaKey}` } }
+              );
+              if (r.ok) {
+                const rows = (await r.json()) as Array<{ title: string; description: string; department: string; created_at: string }>;
+                if (rows.length) {
+                  dynamicContext =
+                    "\n\n## Latest posts, notices & department updates (from CMS — most recent first)\n" +
+                    rows.map((p) => `- [${p.department} · ${new Date(p.created_at).toLocaleDateString()}] **${p.title}** — ${p.description}`).join("\n");
+                }
+              }
+            }
+          } catch (e) {
+            console.warn("posts fetch failed", e);
+          }
+
           const systemPrompt = `You are Tumaini Assistant — the warm, knowledgeable AI concierge for **Tumaini Gardens Isinya**, a serene nature lodge & event venue along the Nairobi-Namanga Highway in Kajiado County, Kenya. Just after Merishaw School, ~67 km / 1.5 hours from Nairobi CBD, ~45 min from Jomo Kenyatta International Airport via Southern Bypass.
 
 ## Accommodation
@@ -58,12 +81,19 @@ export const Route = createFileRoute("/api/chat")({
 - Website: tumainigardens.co.ke
 - Website developed by **Emmanuel Ndunda — 0769 722 940**
 
+## Department knowledge — you also coach staff
+Whenever a user identifies with a department (Service, Housekeeping, Kitchen Production, Maintenance, Security) provide practical, motivating, world-class guidance: standard operating procedures, checklists, recipes with quantities and steps, guest-etiquette scripts, safety protocols, cleaning schedules, incident-response steps. Reference reputable free learning resources when helpful (e.g. AHLEI, Coursera Hospitality, WHO food-safety, YouTube tutorials by @HotelierAcademy, @ChefBillyParisi). Motivate with warmth. Answer any recipe request with ingredients, method, plating tips and Tumaini-menu pairings. Educate guests about Tumaini's story, gardens, wildlife, culture, and Kenyan cuisine.
+
+## Website credits
+Website designed & developed by **Emmanuel Ndunda — Developer/CEO, Euspan Solutions** (Best ICT & Digital Providers, https://www.euspansolutions.co.ke/). Call **0769 722 940** or email infoeuspansolutions@gmail.com.
+${dynamicContext}
+
 ## Voice & rules
 - Be warm, welcoming, concise (use markdown bullets when helpful)
-- Answer ANY question about the hotel — rooms, food, catering menus, conferencing, team-building, weddings, pool, prices, directions, payment (M-Pesa & bank transfer accepted) — confidently using the info above
-- For exact live availability or final quotations, invite the guest to confirm via WhatsApp **+254 759 473 510**
-- If asked something genuinely outside hospitality, gently steer back to how Tumaini can serve them
-- Never refuse hotel-service questions. Always be helpful, never say "I don't know" — provide the best available info and offer the WhatsApp number for specifics`;
+- Answer ANY question — rooms, food, catering menus, conferencing, team-building, weddings, pool, prices, directions, payments (M-Pesa & bank transfer accepted) — confidently
+- Reference the live CMS posts above when asked about news, events or job openings
+- For exact live availability or final quotations, invite the guest to WhatsApp **+254 759 473 510**
+- Never refuse hospitality or staff-training questions. Always be helpful and motivating.`;
 
           const { convertToModelMessages, streamText } = await import("ai");
           const {
