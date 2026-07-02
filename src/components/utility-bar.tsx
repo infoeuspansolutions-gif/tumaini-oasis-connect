@@ -130,12 +130,88 @@ const LANGS = [
   { code: "es", label: "Español", flag: "🇪🇸" },
   { code: "de", label: "Deutsch", flag: "🇩🇪" },
   { code: "it", label: "Italiano", flag: "🇮🇹" },
-  { code: "zh-CN", label: "中文", flag: "🇨🇳" },
-  { code: "ar", label: "العربية", flag: "🇸🇦" },
-  { code: "ja", label: "日本語", flag: "🇯🇵" },
   { code: "pt", label: "Português", flag: "🇵🇹" },
+  { code: "nl", label: "Nederlands", flag: "🇳🇱" },
   { code: "ru", label: "Русский", flag: "🇷🇺" },
+  { code: "uk", label: "Українська", flag: "🇺🇦" },
+  { code: "pl", label: "Polski", flag: "🇵🇱" },
+  { code: "tr", label: "Türkçe", flag: "🇹🇷" },
+  { code: "ar", label: "العربية", flag: "🇸🇦" },
+  { code: "he", label: "עברית", flag: "🇮🇱" },
+  { code: "fa", label: "فارسی", flag: "🇮🇷" },
+  { code: "ur", label: "اردو", flag: "🇵🇰" },
   { code: "hi", label: "हिन्दी", flag: "🇮🇳" },
+  { code: "bn", label: "বাংলা", flag: "🇧🇩" },
+  { code: "ta", label: "தமிழ்", flag: "🇮🇳" },
+  { code: "te", label: "తెలుగు", flag: "🇮🇳" },
+  { code: "ml", label: "മലയാളം", flag: "🇮🇳" },
+  { code: "mr", label: "मराठी", flag: "🇮🇳" },
+  { code: "pa", label: "ਪੰਜਾਬੀ", flag: "🇮🇳" },
+  { code: "zh-CN", label: "中文 (简体)", flag: "🇨🇳" },
+  { code: "zh-TW", label: "中文 (繁體)", flag: "🇹🇼" },
+  { code: "ja", label: "日本語", flag: "🇯🇵" },
+  { code: "ko", label: "한국어", flag: "🇰🇷" },
+  { code: "th", label: "ไทย", flag: "🇹🇭" },
+  { code: "vi", label: "Tiếng Việt", flag: "🇻🇳" },
+  { code: "id", label: "Bahasa Indonesia", flag: "🇮🇩" },
+  { code: "ms", label: "Bahasa Melayu", flag: "🇲🇾" },
+  { code: "fil", label: "Filipino", flag: "🇵🇭" },
+  { code: "am", label: "አማርኛ", flag: "🇪🇹" },
+  { code: "so", label: "Soomaali", flag: "🇸🇴" },
+  { code: "yo", label: "Yorùbá", flag: "🇳🇬" },
+  { code: "ig", label: "Igbo", flag: "🇳🇬" },
+  { code: "ha", label: "Hausa", flag: "🇳🇬" },
+  { code: "zu", label: "isiZulu", flag: "🇿🇦" },
+  { code: "xh", label: "isiXhosa", flag: "🇿🇦" },
+  { code: "st", label: "Sesotho", flag: "🇱🇸" },
+  { code: "sn", label: "chiShona", flag: "🇿🇼" },
+  { code: "ny", label: "Chichewa", flag: "🇲🇼" },
+  { code: "rw", label: "Kinyarwanda", flag: "🇷🇼" },
+  { code: "lg", label: "Luganda", flag: "🇺🇬" },
+  { code: "mg", label: "Malagasy", flag: "🇲🇬" },
+  { code: "af", label: "Afrikaans", flag: "🇿🇦" },
+  { code: "el", label: "Ελληνικά", flag: "🇬🇷" },
+  { code: "cs", label: "Čeština", flag: "🇨🇿" },
+  { code: "sk", label: "Slovenčina", flag: "🇸🇰" },
+  { code: "ro", label: "Română", flag: "🇷🇴" },
+  { code: "hu", label: "Magyar", flag: "🇭🇺" },
+  { code: "bg", label: "Български", flag: "🇧🇬" },
+  { code: "sr", label: "Српски", flag: "🇷🇸" },
+  { code: "hr", label: "Hrvatski", flag: "🇭🇷" },
+  { code: "sv", label: "Svenska", flag: "🇸🇪" },
+  { code: "no", label: "Norsk", flag: "🇳🇴" },
+  { code: "da", label: "Dansk", flag: "🇩🇰" },
+  { code: "fi", label: "Suomi", flag: "🇫🇮" },
+  { code: "is", label: "Íslenska", flag: "🇮🇸" },
+  { code: "ga", label: "Gaeilge", flag: "🇮🇪" },
+  { code: "cy", label: "Cymraeg", flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" },
+  { code: "ca", label: "Català", flag: "🇪🇸" },
+  { code: "eu", label: "Euskara", flag: "🇪🇸" },
+  { code: "gl", label: "Galego", flag: "🇪🇸" },
+  { code: "lv", label: "Latviešu", flag: "🇱🇻" },
+  { code: "lt", label: "Lietuvių", flag: "🇱🇹" },
+  { code: "et", label: "Eesti", flag: "🇪🇪" },
+  { code: "sq", label: "Shqip", flag: "🇦🇱" },
+  { code: "mk", label: "Македонски", flag: "🇲🇰" },
+  { code: "sl", label: "Slovenščina", flag: "🇸🇮" },
+  { code: "bs", label: "Bosanski", flag: "🇧🇦" },
+  { code: "az", label: "Azərbaycan", flag: "🇦🇿" },
+  { code: "hy", label: "Հայերեն", flag: "🇦🇲" },
+  { code: "ka", label: "ქართული", flag: "🇬🇪" },
+  { code: "kk", label: "Қазақша", flag: "🇰🇿" },
+  { code: "uz", label: "Oʻzbekcha", flag: "🇺🇿" },
+  { code: "mn", label: "Монгол", flag: "🇲🇳" },
+  { code: "my", label: "မြန်မာ", flag: "🇲🇲" },
+  { code: "km", label: "ខ្មែរ", flag: "🇰🇭" },
+  { code: "lo", label: "ລາວ", flag: "🇱🇦" },
+  { code: "si", label: "සිංහල", flag: "🇱🇰" },
+  { code: "ne", label: "नेपाली", flag: "🇳🇵" },
+  { code: "ps", label: "پښتو", flag: "🇦🇫" },
+  { code: "eo", label: "Esperanto", flag: "🌍" },
+  { code: "la", label: "Latina", flag: "🏛️" },
+  { code: "haw", label: "ʻŌlelo Hawaiʻi", flag: "🌺" },
+  { code: "mi", label: "Māori", flag: "🇳🇿" },
+  { code: "sm", label: "Gagana Sāmoa", flag: "🇼🇸" },
 ];
 
 declare global {
@@ -199,6 +275,9 @@ function LanguageSelector() {
     }
   }, []);
 
+  const [query, setQuery] = useState("");
+  const filtered = LANGS.filter((l) => l.label.toLowerCase().includes(query.toLowerCase()) || l.code.includes(query.toLowerCase()));
+
   return (
     <div className="relative">
       <button onClick={() => setOpen((o) => !o)} className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white hover:bg-white/25">
@@ -206,12 +285,22 @@ function LanguageSelector() {
         <span>{current.flag} {current.label}</span>
       </button>
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-2 max-h-72 w-52 overflow-auto rounded-2xl border bg-card p-2 shadow-glow">
-          {LANGS.map((l) => (
-            <button key={l.code} onClick={() => pick(l)} className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm hover:bg-secondary ${current.code === l.code ? "bg-secondary font-semibold" : ""}`}>
-              <span className="text-lg">{l.flag}</span> {l.label}
-            </button>
-          ))}
+        <div className="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border bg-card p-2 shadow-glow">
+          <input
+            autoFocus
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={`Search ${LANGS.length} languages…`}
+            className="mb-2 w-full rounded-lg border bg-background px-3 py-1.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/40"
+          />
+          <div className="max-h-72 overflow-auto">
+            {filtered.map((l) => (
+              <button key={l.code} onClick={() => pick(l)} className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm hover:bg-secondary ${current.code === l.code ? "bg-secondary font-semibold" : ""}`}>
+                <span className="text-lg">{l.flag}</span> {l.label} <span className="ml-auto text-[10px] opacity-50">{l.code}</span>
+              </button>
+            ))}
+            {filtered.length === 0 && <p className="p-3 text-center text-xs text-muted-foreground">No match</p>}
+          </div>
         </div>
       )}
     </div>

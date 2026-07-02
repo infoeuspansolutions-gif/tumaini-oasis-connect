@@ -116,6 +116,7 @@ function AdminDashboard({ email, onSignOut }: { email: string | null; onSignOut:
           </div>
           <div className="flex items-center gap-3 text-sm">
             <span className="hidden sm:inline text-muted-foreground">{email}</span>
+            <Link to="/admin/settings" className="rounded-full border border-primary/40 bg-primary/10 text-primary px-3 py-1.5 font-semibold hover:bg-primary/20">⚙ Settings</Link>
             <Link to="/" className="rounded-full border border-border px-3 py-1.5 hover:bg-accent/20">View site</Link>
             <button onClick={onSignOut} className="inline-flex items-center gap-1 rounded-full bg-primary/10 text-primary px-3 py-1.5">
               <LogOut className="h-3.5 w-3.5" /> Sign out
