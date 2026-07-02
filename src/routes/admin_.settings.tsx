@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import { ArrowLeft, Save, Globe, Bot, Volume2, MessageCircle, Palette, ShieldCheck, Loader2 } from "lucide-react";
 
-export const Route = createFileRoute("/admin/settings")({
+export const Route = createFileRoute("/admin_/settings")({
   component: AdminSettingsPage,
 });
 

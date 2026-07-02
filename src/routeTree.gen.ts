@@ -13,7 +13,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
-import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminSettingsRouteImport } from './routes/admin_.settings'
 
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
@@ -36,21 +36,21 @@ const ApiChatRoute = ApiChatRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminSettingsRoute = AdminSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminRoute,
+  id: '/admin_/settings',
+  path: '/admin/settings',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
+  '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
+  '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/api/chat': typeof ApiChatRoute
@@ -58,9 +58,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
+  '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
-  '/admin/settings': typeof AdminSettingsRoute
+  '/admin_/settings': typeof AdminSettingsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
@@ -68,13 +68,14 @@ export interface FileRouteTypes {
   fullPaths: '/' | '/admin' | '/auth' | '/admin/settings' | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/admin' | '/auth' | '/admin/settings' | '/api/chat'
-  id: '__root__' | '/' | '/admin' | '/auth' | '/admin/settings' | '/api/chat'
+  id: '__root__' | '/' | '/admin' | '/auth' | '/admin_/settings' | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRouteWithChildren
+  AdminRoute: typeof AdminRoute
   AuthRoute: typeof AuthRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
@@ -108,30 +109,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/settings': {
-      id: '/admin/settings'
-      path: '/settings'
+    '/admin_/settings': {
+      id: '/admin_/settings'
+      path: '/admin/settings'
       fullPath: '/admin/settings'
       preLoaderRoute: typeof AdminSettingsRouteImport
-      parentRoute: typeof AdminRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface AdminRouteChildren {
-  AdminSettingsRoute: typeof AdminSettingsRoute
-}
-
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminSettingsRoute: AdminSettingsRoute,
-}
-
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRouteWithChildren,
+  AdminRoute: AdminRoute,
   AuthRoute: AuthRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
