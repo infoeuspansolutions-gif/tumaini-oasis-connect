@@ -275,6 +275,9 @@ function LanguageSelector() {
     }
   }, []);
 
+  const [query, setQuery] = useState("");
+  const filtered = LANGS.filter((l) => l.label.toLowerCase().includes(query.toLowerCase()) || l.code.includes(query.toLowerCase()));
+
   return (
     <div className="relative">
       <button onClick={() => setOpen((o) => !o)} className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white hover:bg-white/25">
@@ -282,12 +285,22 @@ function LanguageSelector() {
         <span>{current.flag} {current.label}</span>
       </button>
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-2 max-h-72 w-52 overflow-auto rounded-2xl border bg-card p-2 shadow-glow">
-          {LANGS.map((l) => (
-            <button key={l.code} onClick={() => pick(l)} className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm hover:bg-secondary ${current.code === l.code ? "bg-secondary font-semibold" : ""}`}>
-              <span className="text-lg">{l.flag}</span> {l.label}
-            </button>
-          ))}
+        <div className="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border bg-card p-2 shadow-glow">
+          <input
+            autoFocus
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={`Search ${LANGS.length} languages…`}
+            className="mb-2 w-full rounded-lg border bg-background px-3 py-1.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/40"
+          />
+          <div className="max-h-72 overflow-auto">
+            {filtered.map((l) => (
+              <button key={l.code} onClick={() => pick(l)} className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm hover:bg-secondary ${current.code === l.code ? "bg-secondary font-semibold" : ""}`}>
+                <span className="text-lg">{l.flag}</span> {l.label} <span className="ml-auto text-[10px] opacity-50">{l.code}</span>
+              </button>
+            ))}
+            {filtered.length === 0 && <p className="p-3 text-center text-xs text-muted-foreground">No match</p>}
+          </div>
         </div>
       )}
     </div>
