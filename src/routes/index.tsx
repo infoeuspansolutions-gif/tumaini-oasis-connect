@@ -75,7 +75,8 @@ const fadeUp = {
 
 function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden pt-9">
+      <UtilityBar />
       <Navbar />
       <Hero />
       <OffersMarquee />
