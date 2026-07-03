@@ -555,7 +555,7 @@ function Contact() {
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground"><Phone className="h-5 w-5" /></span>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Reservations</p>
-                <p className="font-medium group-hover:text-primary">+254 759 473 510</p>
+                <p className="font-medium group-hover:text-primary">+254 759 473 510 · +254 724 715 430</p>
               </div>
             </a>
             <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
@@ -565,15 +565,24 @@ function Contact() {
                 <p className="font-medium group-hover:text-primary">Chat with us instantly</p>
               </div>
             </a>
+            <a href="mailto:warugimccreadie@tumainigardens.com" className="flex items-center gap-4 group">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-leaf text-primary-foreground font-bold">@</span>
+              <div className="min-w-0">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">Email</p>
+                <p className="font-medium group-hover:text-primary break-all">warugimccreadie@tumainigardens.com</p>
+                <p className="font-medium group-hover:text-primary break-all">rose.njoroge@tumainigardens.com</p>
+              </div>
+            </a>
             <div className="flex items-center gap-4">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent text-accent-foreground"><MapPin className="h-5 w-5" /></span>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Location</p>
-                <p className="font-medium">Nairobi-Namanga Hwy, Isinya · Kajiado</p>
+                <p className="font-medium">Isinya · Kajiado County · 2 km off Nairobi-Namanga Hwy</p>
+                <p className="text-xs text-muted-foreground">Facebook: Tumaini Gardens Isinya</p>
               </div>
             </div>
-            <a href="/tumaini-brochure.html" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-medium text-primary hover:underline">
-              <Download className="h-4 w-4" /> Download our full brochure (printable)
+            <a href={brochure2025.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-primary hover:underline">
+              <Download className="h-4 w-4" /> Download 2025 Accommodation Brochure (PDF)
             </a>
           </div>
         </motion.div>
