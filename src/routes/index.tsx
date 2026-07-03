@@ -318,9 +318,9 @@ function About() {
 
 function Stay() {
   const rooms = [
-    { img: imgRoom.url, name: "Deluxe Suite", desc: "King bed, en-suite, fresh linens and garden views from your window.", price: "From KES 9,500 / night", color: "from-emerald-500 to-lime-500" },
-    { img: img4.url, name: "Garden Cottage", desc: "Standalone cottage with private verandah opening to the lawns.", price: "From KES 7,500 / night", color: "from-orange-500 to-rose-500" },
-    { img: img2.url, name: "Twin Cottage", desc: "Perfect for friends or family — two beds, shared verandah, peace.", price: "From KES 8,500 / night", color: "from-sky-500 to-indigo-500" },
+    { img: imgRoom.url, name: "Single Room", desc: "En-suite, high-end finishing, free Wi-Fi. Premium rooms include a cosy fireplace.", price: "B&B 7,500 · HB 9,500 · FB 11,500", color: "from-emerald-500 to-lime-500" },
+    { img: img4.url, name: "Double Room", desc: "Spacious double with modern furnishing, opening to garden views.", price: "B&B 9,500 · HB 13,000 · FB 16,500", color: "from-orange-500 to-rose-500" },
+    { img: img2.url, name: "Triple / Family", desc: "Family-friendly triple room or our 3-bedroom cottage — perfect for groups.", price: "B&B 11,500 · HB 16,750 · FB 22,000", color: "from-sky-500 to-indigo-500" },
   ];
   return (
     <section id="stay" className="relative overflow-hidden bg-gradient-to-br from-secondary/60 via-background to-accent/10 py-24">
