@@ -93,6 +93,7 @@ function Home() {
       <UpdatesFeed />
       <Gallery />
       <Testimonials />
+      <Faq />
       <Contact />
       <Footer />
       <WhatsAppButton />
