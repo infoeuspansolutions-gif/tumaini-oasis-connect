@@ -266,9 +266,9 @@ function Hero() {
 
 function Stats() {
   const items = [
-    { n: "67km", l: "from Nairobi" },
-    { n: "1.5hr", l: "scenic drive" },
-    { n: "10+", l: "garden cottages" },
+    { n: "60km", l: "from Nairobi" },
+    { n: "10 acres", l: "of gardens" },
+    { n: "64+", l: "rooms & cottages" },
     { n: "500+", l: "event capacity" },
   ];
   return (
