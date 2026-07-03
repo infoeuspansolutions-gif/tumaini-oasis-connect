@@ -9,6 +9,8 @@ import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
 import { WelcomeRobot } from "@/components/welcome-robot";
 import { UpdatesFeed } from "@/components/updates-feed";
 import { UtilityBar } from "@/components/utility-bar";
+import { Faq } from "@/components/faq";
+import brochure2025 from "@/assets/brochure-2025.pdf.asset.json";
 
 const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
 const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
@@ -91,6 +93,7 @@ function Home() {
       <UpdatesFeed />
       <Gallery />
       <Testimonials />
+      <Faq />
       <Contact />
       <Footer />
       <WhatsAppButton />
@@ -263,9 +266,9 @@ function Hero() {
 
 function Stats() {
   const items = [
-    { n: "67km", l: "from Nairobi" },
-    { n: "1.5hr", l: "scenic drive" },
-    { n: "10+", l: "garden cottages" },
+    { n: "60km", l: "from Nairobi" },
+    { n: "10 acres", l: "of gardens" },
+    { n: "64+", l: "rooms & cottages" },
     { n: "500+", l: "event capacity" },
   ];
   return (
@@ -315,9 +318,9 @@ function About() {
 
 function Stay() {
   const rooms = [
-    { img: imgRoom.url, name: "Deluxe Suite", desc: "King bed, en-suite, fresh linens and garden views from your window.", price: "From KES 9,500 / night", color: "from-emerald-500 to-lime-500" },
-    { img: img4.url, name: "Garden Cottage", desc: "Standalone cottage with private verandah opening to the lawns.", price: "From KES 7,500 / night", color: "from-orange-500 to-rose-500" },
-    { img: img2.url, name: "Twin Cottage", desc: "Perfect for friends or family — two beds, shared verandah, peace.", price: "From KES 8,500 / night", color: "from-sky-500 to-indigo-500" },
+    { img: imgRoom.url, name: "Single Room", desc: "En-suite, high-end finishing, free Wi-Fi. Premium rooms include a cosy fireplace.", price: "B&B 7,500 · HB 9,500 · FB 11,500", color: "from-emerald-500 to-lime-500" },
+    { img: img4.url, name: "Double Room", desc: "Spacious double with modern furnishing, opening to garden views.", price: "B&B 9,500 · HB 13,000 · FB 16,500", color: "from-orange-500 to-rose-500" },
+    { img: img2.url, name: "Triple / Family", desc: "Family-friendly triple room or our 3-bedroom cottage — perfect for groups.", price: "B&B 11,500 · HB 16,750 · FB 22,000", color: "from-sky-500 to-indigo-500" },
   ];
   return (
     <section id="stay" className="relative overflow-hidden bg-gradient-to-br from-secondary/60 via-background to-accent/10 py-24">
@@ -552,7 +555,7 @@ function Contact() {
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground"><Phone className="h-5 w-5" /></span>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Reservations</p>
-                <p className="font-medium group-hover:text-primary">+254 759 473 510</p>
+                <p className="font-medium group-hover:text-primary">+254 759 473 510 · +254 724 715 430</p>
               </div>
             </a>
             <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
@@ -562,15 +565,24 @@ function Contact() {
                 <p className="font-medium group-hover:text-primary">Chat with us instantly</p>
               </div>
             </a>
+            <a href="mailto:warugimccreadie@tumainigardens.com" className="flex items-center gap-4 group">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-leaf text-primary-foreground font-bold">@</span>
+              <div className="min-w-0">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">Email</p>
+                <p className="font-medium group-hover:text-primary break-all">warugimccreadie@tumainigardens.com</p>
+                <p className="font-medium group-hover:text-primary break-all">rose.njoroge@tumainigardens.com</p>
+              </div>
+            </a>
             <div className="flex items-center gap-4">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent text-accent-foreground"><MapPin className="h-5 w-5" /></span>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Location</p>
-                <p className="font-medium">Nairobi-Namanga Hwy, Isinya · Kajiado</p>
+                <p className="font-medium">Isinya · Kajiado County · 2 km off Nairobi-Namanga Hwy</p>
+                <p className="text-xs text-muted-foreground">Facebook: Tumaini Gardens Isinya</p>
               </div>
             </div>
-            <a href="/tumaini-brochure.html" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-medium text-primary hover:underline">
-              <Download className="h-4 w-4" /> Download our full brochure (printable)
+            <a href={brochure2025.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-primary hover:underline">
+              <Download className="h-4 w-4" /> Download 2025 Accommodation Brochure (PDF)
             </a>
           </div>
         </motion.div>
