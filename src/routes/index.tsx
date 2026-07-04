@@ -697,9 +697,15 @@ function Footer() {
           <ul className="mt-4 space-y-2">
             <li><a href="tel:+254759473510" className="hover:underline">+254 759 473 510</a></li>
             <li><a href="https://wa.me/254759473510" target="_blank" rel="noreferrer" className="hover:underline">WhatsApp</a></li>
-            <li><a href="https://www.tiktok.com/@tumainigardensresort" target="_blank" rel="noreferrer" className="hover:underline">TikTok</a></li>
-            <li><a href="https://www.tripadvisor.com/Hotel_Review-g7753813-d9786821-Reviews-Tumaini_Gardens-Kajiado_Rift_Valley_Province.html" target="_blank" rel="noreferrer" className="hover:underline">TripAdvisor</a></li>
+            <li><Link to="/organic-farming" className="hover:underline">🌱 Organic Farm</Link></li>
+            <li><a href="https://tumainigardensresort.co.ke/sitemap.xml" className="hover:underline">Sitemap</a></li>
           </ul>
+          <div className="mt-5 flex items-center gap-3" aria-label="Social media">
+            <a href="https://www.facebook.com/100064759146824/posts/1255145159987444/" target="_blank" rel="noreferrer" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20"><Facebook className="h-5 w-5" /></a>
+            <a href="https://www.instagram.com/tumaini.gardens.resort/?hl=en" target="_blank" rel="noreferrer" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20"><Instagram className="h-5 w-5" /></a>
+            <a href="https://www.tiktok.com/@tumainigardensresort" target="_blank" rel="noreferrer" aria-label="TikTok" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20 text-xs font-bold">TT</a>
+            <a href="https://www.tripadvisor.com/Hotel_Review-g7753813-d9786821-Reviews-Tumaini_Gardens-Kajiado_Rift_Valley_Province.html" target="_blank" rel="noreferrer" aria-label="TripAdvisor" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20 text-[10px] font-bold">TA</a>
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10 bg-black/20">
@@ -724,7 +730,7 @@ function Footer() {
           </Link>
         </div>
         <div className="mx-auto max-w-7xl px-5 pb-6 text-xs opacity-70 text-center md:text-left">
-          © {new Date().getFullYear()} Tumaini Gardens Isinya. All rights reserved.
+          © {new Date().getFullYear()} Tumaini Gardens Resort · Isinya, Kajiado · <a href="https://tumainigardensresort.co.ke" className="underline">tumainigardensresort.co.ke</a>
         </div>
       </div>
     </footer>
