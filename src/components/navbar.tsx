@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, ArrowLeft, ArrowRight, Home, Search } from "lucide-react";
+import { Menu, X, ArrowLeft, ArrowRight, Home, Search, Leaf } from "lucide-react";
 import { useState } from "react";
 
 const NAV = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#stay", label: "Stay" },
-  { href: "#catering", label: "Dining" },
-  { href: "#events", label: "Events" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#stay", label: "Stay" },
+  { href: "/#catering", label: "Dining" },
+  { href: "/#events", label: "Events" },
+  { href: "/organic-farming", label: "Organic Farm", internal: true, icon: Leaf },
+  { href: "/#gallery", label: "Gallery" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -30,7 +31,7 @@ export function Navbar() {
   const runSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!q.trim()) return;
-    window.open(`https://www.google.com/search?q=${encodeURIComponent(q + " site:tumainigardens.co.ke OR Tumaini Gardens Isinya")}`, "_blank");
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(q + " site:tumainigardensresort.co.ke OR Tumaini Gardens Resort Isinya")}`, "_blank");
     setSearchOpen(false);
     setQ("");
   };
@@ -66,9 +67,15 @@ export function Navbar() {
         </div>
 
         {/* Center: desktop nav */}
-        <nav className="hidden lg:flex items-center gap-5 text-sm">
+        <nav className="hidden lg:flex items-center gap-4 text-sm" aria-label="Primary">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="text-foreground/80 hover:text-primary transition-colors">{n.label}</a>
+            n.internal ? (
+              <Link key={n.href} to={n.href} className="flex items-center gap-1 text-foreground/85 hover:text-primary transition-colors font-medium">
+                {n.icon ? <n.icon className="h-4 w-4" /> : null}{n.label}
+              </Link>
+            ) : (
+              <a key={n.href} href={n.href} className="text-foreground/85 hover:text-primary transition-colors font-medium">{n.label}</a>
+            )
           ))}
         </nav>
 
@@ -101,7 +108,13 @@ export function Navbar() {
         <div className="lg:hidden border-t bg-background/95 backdrop-blur">
           <div className="flex flex-col p-4 gap-1 max-h-[70vh] overflow-y-auto">
             {NAV.map((n) => (
-              <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-foreground/85 hover:bg-primary/10 hover:text-primary text-base font-medium">{n.label}</a>
+              n.internal ? (
+                <Link key={n.href} to={n.href} onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-xl px-4 py-3 text-foreground/90 hover:bg-primary/10 hover:text-primary text-base font-medium">
+                  {n.icon ? <n.icon className="h-4 w-4" /> : null}{n.label}
+                </Link>
+              ) : (
+                <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-foreground/90 hover:bg-primary/10 hover:text-primary text-base font-medium">{n.label}</a>
+              )
             ))}
             <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer"
                className="mt-2 rounded-full bg-gradient-warm px-5 py-3 text-center text-accent-foreground font-semibold">Book on WhatsApp</a>
