@@ -250,18 +250,18 @@ function LanguageSelector() {
   const pick = (l: typeof LANGS[number]) => {
     setCurrent(l);
     setOpen(false);
-    // Trigger via cookie + reload for reliability
-    const setCookie = (v: string) => {
-      const host = window.location.hostname;
-      document.cookie = `googtrans=${v};path=/`;
-      document.cookie = `googtrans=${v};path=/;domain=${host}`;
-      document.cookie = `googtrans=${v};path=/;domain=.${host}`;
-    };
-    if (l.code === "en") {
-      setCookie("/en/en");
-    } else {
-      setCookie(`/en/${l.code}`);
-    }
+    if (typeof window === "undefined") return;
+    // Google Translate reads the hash `#googtrans(source|target)` on load — most reliable.
+    const target = l.code === "en" ? "en" : l.code;
+    const val = `/en/${target}`;
+    // Set cookie (multiple domain scopes) + hash for maximum reliability.
+    const host = window.location.hostname;
+    document.cookie = `googtrans=${val};path=/;max-age=31536000`;
+    document.cookie = `googtrans=${val};path=/;domain=${host};max-age=31536000`;
+    document.cookie = `googtrans=${val};path=/;domain=.${host};max-age=31536000`;
+    try { localStorage.setItem("preferredLang", l.code); } catch { /* ignore */ }
+    // Hash-based trigger — Google Translate honors this immediately on reload.
+    window.location.hash = `#googtrans(en|${target})`;
     window.location.reload();
   };
 
