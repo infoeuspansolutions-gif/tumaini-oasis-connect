@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import {
   MapPin, Phone, Users, Calendar, Wifi, Car, Utensils, Waves,
   Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download, Play,
+  Leaf, Shield, ChefHat, Wrench, BedDouble, HandHeart, Facebook, Instagram, Lock,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
@@ -11,6 +12,7 @@ import { UpdatesFeed } from "@/components/updates-feed";
 import { UtilityBar } from "@/components/utility-bar";
 import { Faq } from "@/components/faq";
 import brochure2025 from "@/assets/brochure-2025.pdf.asset.json";
+import farm26 from "@/assets/farm-26.jpg.asset.json";
 
 const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
 const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
@@ -33,35 +35,41 @@ const imgPath = { url: "/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597964/tu
 
 
 
+const DOMAIN = "https://tumainigardensresort.co.ke";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tumaini Gardens Isinya — Lodge, Pool & Event Gardens, Kajiado" },
-      { name: "description", content: "Tumaini Gardens Isinya is a serene lodge & event venue along the Nairobi-Namanga Highway. Cottages, pool, conferences, weddings & team-building, just 67km from Nairobi." },
-      { property: "og:title", content: "Tumaini Gardens Isinya — Serene Getaway & Event Venue" },
-      { property: "og:description", content: "Cottages, pool, gardens & conference space along Nairobi-Namanga Highway. Book your getaway today." },
+      { title: "Tumaini Gardens Resort — Best Resort in Kenya · Isinya, Kajiado" },
+      { name: "description", content: "Tumaini Gardens Resort: accommodation, weddings, conferences & organic farm-to-table dining just 60 km from Nairobi. Best resort in Kenya for family, corporate & honeymoon stays." },
+      { name: "keywords", content: "Tumaini Gardens Resort, Resort in Kenya, Accommodation in Kenya, Hotel booking Kenya, Vacation resort Kenya, Kajiado resort, Isinya resort, wedding venue Kenya, conference resort Nairobi" },
+      { property: "og:title", content: "Tumaini Gardens Resort — Best Resort in Kenya, Isinya Kajiado" },
+      { property: "og:description", content: "Cottages, pool, organic farm & event gardens along Nairobi-Namanga Highway. Book Kenya's serene garden resort." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: img4.url },
-      { property: "og:url", content: "/" },
+      { property: "og:image", content: `${DOMAIN}${img4.url}` },
+      { property: "og:url", content: DOMAIN },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: img4.url },
+      { name: "twitter:image", content: `${DOMAIN}${img4.url}` },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: DOMAIN },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" },
+      { rel: "preload", as: "image", href: imgGarden.url, fetchpriority: "high" } as unknown as { rel: string; href: string },
     ],
     scripts: [{
       type: "application/ld+json",
       children: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Lodging",
-        name: "Tumaini Gardens Isinya",
-        image: [img4.url, img2.url, img6.url],
+        "@type": "Hotel",
+        name: "Tumaini Gardens Resort",
+        image: [`${DOMAIN}${img4.url}`, `${DOMAIN}${img2.url}`, `${DOMAIN}${img6.url}`],
         telephone: "+254759473510",
+        url: DOMAIN,
+        priceRange: "KES 7,500 – 22,000",
         address: { "@type": "PostalAddress", addressLocality: "Isinya", addressRegion: "Kajiado", addressCountry: "KE" },
-        amenityFeature: ["Swimming Pool", "Restaurant", "Conference Hall", "Free Parking", "Wi-Fi", "Gardens"],
+        amenityFeature: ["Swimming Pool", "Restaurant", "Conference Hall", "Free Parking", "Wi-Fi", "Organic Gardens", "Farm-to-Table"],
       }),
     }],
   }),
@@ -84,6 +92,7 @@ function Home() {
       <OffersMarquee />
       <Stats />
       <About />
+      <FarmTeaser />
       <Stay />
       <Catering />
       <Facilities />
@@ -145,7 +154,7 @@ function Catering() {
             <motion.div key={m.title} initial={{ opacity:0, y:30 }} whileInView={{ opacity:1, y:0 }} transition={{ delay: i*0.15 }} viewport={{ once:true }} whileHover={{ y:-10, rotateX:3, rotateY:-3 }} className="tilt-card group relative overflow-hidden rounded-3xl shadow-soft hover:shadow-glow">
               <div className="tilt-card-inner">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={m.img} alt={m.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={m.img} alt={m.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"  loading="lazy" decoding="async" />
                   <div className={`absolute inset-0 bg-gradient-to-tr ${m.color} mix-blend-multiply`} />
                   <div className="absolute bottom-3 left-4 text-primary-foreground">
                     <p className="font-display text-2xl">{m.title}</p>
@@ -190,7 +199,7 @@ function Adverts() {
         <div className="grid gap-6 md:grid-cols-3">
           {ads.map((a, i) => (
             <motion.a key={a.title} href="https://wa.me/254759473510" target="_blank" rel="noopener noreferrer" initial={{ opacity:0, scale:0.95 }} whileInView={{ opacity:1, scale:1 }} transition={{ delay:i*0.12 }} viewport={{ once:true }} whileHover={{ y:-6 }} className="group relative block overflow-hidden rounded-3xl shadow-soft hover:shadow-glow">
-              <img src={a.img} alt={a.title} className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={a.img} alt={a.title} className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-110"  loading="lazy" decoding="async" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
               <span className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground shadow-glow animate-pulse-ring">{a.tag}</span>
               <div className="absolute inset-x-0 bottom-0 p-5 text-white">
@@ -210,7 +219,7 @@ function Hero() {
   return (
     <section id="home" className="relative min-h-[100svh] w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img src={imgGarden.url} alt="Tumaini Gardens at sunset with bougainvillea" className="h-full w-full object-cover" />
+        <img src={imgGarden.url} alt="Tumaini Gardens Resort at sunset — Isinya, Kajiado, Kenya" className="h-full w-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-accent/40 to-primary/70 animate-gradient" />
         <motion.div animate={{ scale:[1,1.2,1], opacity:[0.4,0.7,0.4] }} transition={{ duration:8, repeat:Infinity }} className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-accent/40 blur-3xl animate-blob" />
         <motion.div animate={{ scale:[1,1.3,1], opacity:[0.3,0.6,0.3] }} transition={{ duration:10, repeat:Infinity, delay:1 }} className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-primary/50 blur-3xl animate-blob" />
@@ -286,30 +295,87 @@ function Stats() {
 }
 
 function About() {
+  const departments = [
+    { icon: HandHeart, name: "Service Department", d: "Front-office, reservations & guest experience. Warm Kenyan hospitality end-to-end." },
+    { icon: BedDouble, name: "Housekeeping Department", d: "Spotless rooms, cottages & public areas — daily linen, deep-clean & turndown." },
+    { icon: ChefHat, name: "Kitchen Production", d: "Farm-to-table chefs cooking with fresh organic produce grown on our own farm." },
+    { icon: Wrench, name: "Maintenance", d: "24/7 property care — plumbing, electrical, pool & grounds upkeep." },
+    { icon: Shield, name: "Security Department", d: "Round-the-clock guarded property with secure parking for cars, buses & groups." },
+  ];
   return (
     <section id="about" className="mx-auto max-w-7xl px-5 py-24">
       <div className="grid items-center gap-12 md:grid-cols-2">
         <motion.div {...fadeUp} className="relative">
-          <img src={img1.url} alt="Tumaini Gardens landscaping" className="rounded-3xl shadow-soft" />
-          <img src={img3.url} alt="Tumaini Gardens sign" className="absolute -bottom-10 -right-4 hidden w-1/2 rounded-3xl border-8 border-background shadow-glow md:block" />
+          <img src={img1.url} alt="Tumaini Gardens Resort landscaped gardens in Isinya, Kajiado" loading="lazy" decoding="async" className="rounded-3xl shadow-soft w-full h-auto" />
+          <img src={img3.url} alt="Tumaini Gardens Resort welcome sign" loading="lazy" decoding="async" className="absolute -bottom-10 -right-4 hidden w-1/2 rounded-3xl border-8 border-background shadow-glow md:block" />
         </motion.div>
         <motion.div {...fadeUp}>
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">About Tumaini</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold">About Tumaini</p>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">A garden of <span className="text-gradient-leaf">hope</span>, designed for memorable moments.</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
+          <p className="mt-6 text-foreground/85 leading-relaxed text-base sm:text-lg">
             Nestled just off the Nairobi-Namanga Highway, immediately after Merishaw School in Isinya,
-            Tumaini Gardens is a 1.5-hour escape from the city — yet a world away. Think manicured lawns,
-            blossoming flower beds, a glistening pool framed by palms, and warm cottages built for rest.
+            Tumaini Gardens Resort is a 1.5-hour escape from Nairobi — yet a world away. Manicured lawns,
+            blossoming flower beds, a glistening pool framed by palms, warm cottages, and our very own
+            <strong> organic farm</strong> that supplies almost every meal we serve.
           </p>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Whether you're planning an intimate getaway, a corporate retreat, a wedding under the trees,
-            or a Sunday picnic with family — Tumaini is built to host life's celebrations.
+          <p className="mt-4 text-foreground/85 leading-relaxed">
+            Tumaini uses <strong>its own farm-grown products</strong> — from bananas, oranges and citrus to
+            leafy greens, herbs and vegetables. Farm-to-fork, every day.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {["Weddings", "Team Building", "Conferences", "Honeymoons", "Picnics", "Day Trips"].map((t) => (
-              <span key={t} className="rounded-full border bg-secondary px-4 py-1.5 text-sm text-secondary-foreground">{t}</span>
-            ))}
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link to="/organic-farming" className="inline-flex items-center gap-2 rounded-full bg-gradient-leaf px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:opacity-95">
+              <Leaf className="h-4 w-4" /> Explore our organic farm
+            </Link>
+            <Link to="/admin" className="inline-flex items-center gap-2 rounded-full border-2 border-primary/40 bg-card px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary/10">
+              <Lock className="h-4 w-4" /> Admin Login
+            </Link>
           </div>
+        </motion.div>
+      </div>
+
+      {/* Departments */}
+      <div className="mt-16">
+        <h3 className="font-display text-2xl sm:text-3xl text-center">Our Departments</h3>
+        <p className="mt-2 text-center text-foreground/75">Every stay is powered by our five specialised teams.</p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {departments.map((d, i) => (
+            <motion.div key={d.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+              className="rounded-2xl border bg-card p-5 shadow-soft hover:shadow-glow transition">
+              <d.icon className="h-8 w-8 text-primary" aria-hidden="true" />
+              <p className="mt-3 font-display text-base font-bold">{d.name}</p>
+              <p className="mt-1 text-xs text-foreground/75 leading-relaxed">{d.d}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-10 flex flex-wrap justify-center gap-3">
+        {["Weddings", "Team Building", "Conferences", "Honeymoons", "Picnics", "Day Trips", "Organic Farm Tours"].map((t) => (
+          <span key={t} className="rounded-full border bg-secondary px-4 py-1.5 text-sm text-secondary-foreground">{t}</span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// Organic Farm teaser
+function FarmTeaser() {
+  return (
+    <section className="relative overflow-hidden py-16 sm:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/10">
+      <div className="mx-auto max-w-7xl px-5 grid gap-8 md:grid-cols-2 items-center">
+        <motion.img {...fadeUp} src={farm26.url} alt="Tumaini Gardens organic farm beds with cabbages, herbs and shrubs" loading="lazy" decoding="async" className="rounded-3xl shadow-glow w-full h-auto" />
+        <motion.div {...fadeUp}>
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+            <Leaf className="h-4 w-4" /> Farm to Table
+          </span>
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl">We grow what we serve.</h2>
+          <p className="mt-4 text-foreground/85 leading-relaxed">
+            Bananas, oranges, kale, spinach, herbs and vegetables — grown on our own organic farm,
+            harvested the morning of service. Chemical-free, drip-irrigated and community-trained.
+          </p>
+          <Link to="/organic-farming" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-soft hover:opacity-95">
+            See our organic farm <ChevronRight className="h-4 w-4" />
+          </Link>
         </motion.div>
       </div>
     </section>
@@ -339,7 +405,7 @@ function Stay() {
               className="tilt-card group overflow-hidden rounded-3xl bg-card shadow-soft transition hover:shadow-glow">
               <div className="tilt-card-inner">
                 <div className="aspect-[4/3] overflow-hidden relative">
-                  <img src={r.img} alt={r.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                  <img src={r.img} alt={r.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-110"  loading="lazy" decoding="async" />
                   <div className={`absolute inset-0 bg-gradient-to-tr ${r.color} opacity-0 mix-blend-overlay transition group-hover:opacity-60`} />
                 </div>
                 <div className="p-6">
@@ -444,7 +510,7 @@ function Events() {
   return (
     <section id="events" className="relative overflow-hidden bg-primary text-primary-foreground py-24">
       <div className="absolute inset-0 opacity-30">
-        <img src={img7.url} alt="" className="h-full w-full object-cover" />
+        <img src={img7.url} alt="" className="h-full w-full object-cover"  loading="lazy" decoding="async" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-transparent" />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-2 md:items-center">
@@ -473,8 +539,8 @@ function Events() {
           </a>
         </motion.div>
         <motion.div {...fadeUp} className="relative">
-          <img src={img7.url} alt="Event setup poolside" className="rounded-3xl shadow-glow" />
-          <img src={img6.url} alt="Pool area" className="absolute -bottom-8 -left-8 hidden w-1/2 rounded-3xl border-8 border-primary shadow-glow md:block animate-float" />
+          <img src={img7.url} alt="Event setup poolside" className="rounded-3xl shadow-glow"  loading="lazy" decoding="async" />
+          <img src={img6.url} alt="Pool area" className="absolute -bottom-8 -left-8 hidden w-1/2 rounded-3xl border-8 border-primary shadow-glow md:block animate-float"  loading="lazy" decoding="async" />
         </motion.div>
       </div>
     </section>
@@ -503,7 +569,7 @@ function Gallery() {
             transition={{ duration: 0.5, delay: i * 0.05 }}
             className={`overflow-hidden rounded-2xl shadow-soft ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
           >
-            <img src={p.url} alt="Tumaini Gardens" className="h-full w-full object-cover aspect-square transition duration-700 hover:scale-110" />
+            <img src={p.url} alt="Tumaini Gardens" className="h-full w-full object-cover aspect-square transition duration-700 hover:scale-110"  loading="lazy" decoding="async" />
           </motion.div>
         ))}
       </div>
@@ -609,7 +675,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={logo.url} alt="Tumaini Gardens logo" className="h-14 w-14 rounded-full bg-black object-contain p-1.5 ring-2 ring-white/40" />
+            <img src={logo.url} alt="Tumaini Gardens logo" className="h-14 w-14 rounded-full bg-black object-contain p-1.5 ring-2 ring-white/40"  loading="lazy" decoding="async" />
             <div>
               <p className="font-display text-2xl">Tumaini Gardens</p>
               <p className="text-xs uppercase tracking-widest opacity-80">Isinya · Kajiado · Kenya</p>
@@ -631,9 +697,15 @@ function Footer() {
           <ul className="mt-4 space-y-2">
             <li><a href="tel:+254759473510" className="hover:underline">+254 759 473 510</a></li>
             <li><a href="https://wa.me/254759473510" target="_blank" rel="noreferrer" className="hover:underline">WhatsApp</a></li>
-            <li><a href="https://www.tiktok.com/@tumainigardensresort" target="_blank" rel="noreferrer" className="hover:underline">TikTok</a></li>
-            <li><a href="https://www.tripadvisor.com/Hotel_Review-g7753813-d9786821-Reviews-Tumaini_Gardens-Kajiado_Rift_Valley_Province.html" target="_blank" rel="noreferrer" className="hover:underline">TripAdvisor</a></li>
+            <li><Link to="/organic-farming" className="hover:underline">🌱 Organic Farm</Link></li>
+            <li><a href="https://tumainigardensresort.co.ke/sitemap.xml" className="hover:underline">Sitemap</a></li>
           </ul>
+          <div className="mt-5 flex items-center gap-3" aria-label="Social media">
+            <a href="https://www.facebook.com/100064759146824/posts/1255145159987444/" target="_blank" rel="noreferrer" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20"><Facebook className="h-5 w-5" /></a>
+            <a href="https://www.instagram.com/tumaini.gardens.resort/?hl=en" target="_blank" rel="noreferrer" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20"><Instagram className="h-5 w-5" /></a>
+            <a href="https://www.tiktok.com/@tumainigardensresort" target="_blank" rel="noreferrer" aria-label="TikTok" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20 text-xs font-bold">TT</a>
+            <a href="https://www.tripadvisor.com/Hotel_Review-g7753813-d9786821-Reviews-Tumaini_Gardens-Kajiado_Rift_Valley_Province.html" target="_blank" rel="noreferrer" aria-label="TripAdvisor" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20 text-[10px] font-bold">TA</a>
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10 bg-black/20">
@@ -658,7 +730,7 @@ function Footer() {
           </Link>
         </div>
         <div className="mx-auto max-w-7xl px-5 pb-6 text-xs opacity-70 text-center md:text-left">
-          © {new Date().getFullYear()} Tumaini Gardens Isinya. All rights reserved.
+          © {new Date().getFullYear()} Tumaini Gardens Resort · Isinya, Kajiado · <a href="https://tumainigardensresort.co.ke" className="underline">tumainigardensresort.co.ke</a>
         </div>
       </div>
     </footer>

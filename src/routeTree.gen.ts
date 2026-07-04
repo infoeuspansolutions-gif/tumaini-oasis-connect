@@ -9,12 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as OrganicFarmingRouteImport } from './routes/organic-farming'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdminSettingsRouteImport } from './routes/admin_.settings'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrganicFarmingRoute = OrganicFarmingRouteImport.update({
+  id: '/organic-farming',
+  path: '/organic-farming',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
@@ -45,6 +57,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
+  '/organic-farming': typeof OrganicFarmingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/api/chat': typeof ApiChatRoute
 }
@@ -52,6 +66,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
+  '/organic-farming': typeof OrganicFarmingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/api/chat': typeof ApiChatRoute
 }
@@ -60,27 +76,67 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
+  '/organic-farming': typeof OrganicFarmingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin_/settings': typeof AdminSettingsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/auth' | '/admin/settings' | '/api/chat'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/organic-farming'
+    | '/sitemap.xml'
+    | '/admin/settings'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/auth' | '/admin/settings' | '/api/chat'
-  id: '__root__' | '/' | '/admin' | '/auth' | '/admin_/settings' | '/api/chat'
+  to:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/organic-farming'
+    | '/sitemap.xml'
+    | '/admin/settings'
+    | '/api/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/organic-farming'
+    | '/sitemap.xml'
+    | '/admin_/settings'
+    | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
   AuthRoute: typeof AuthRoute
+  OrganicFarmingRoute: typeof OrganicFarmingRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/organic-farming': {
+      id: '/organic-farming'
+      path: '/organic-farming'
+      fullPath: '/organic-farming'
+      preLoaderRoute: typeof OrganicFarmingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
@@ -123,6 +179,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
   AuthRoute: AuthRoute,
+  OrganicFarmingRoute: OrganicFarmingRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   ApiChatRoute: ApiChatRoute,
 }
