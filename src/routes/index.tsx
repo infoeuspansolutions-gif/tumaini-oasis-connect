@@ -33,35 +33,41 @@ const imgPath = { url: "/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597964/tu
 
 
 
+const DOMAIN = "https://tumainigardensresort.co.ke";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tumaini Gardens Isinya — Lodge, Pool & Event Gardens, Kajiado" },
-      { name: "description", content: "Tumaini Gardens Isinya is a serene lodge & event venue along the Nairobi-Namanga Highway. Cottages, pool, conferences, weddings & team-building, just 67km from Nairobi." },
-      { property: "og:title", content: "Tumaini Gardens Isinya — Serene Getaway & Event Venue" },
-      { property: "og:description", content: "Cottages, pool, gardens & conference space along Nairobi-Namanga Highway. Book your getaway today." },
+      { title: "Tumaini Gardens Resort — Best Resort in Kenya · Isinya, Kajiado" },
+      { name: "description", content: "Tumaini Gardens Resort: accommodation, weddings, conferences & organic farm-to-table dining just 60 km from Nairobi. Best resort in Kenya for family, corporate & honeymoon stays." },
+      { name: "keywords", content: "Tumaini Gardens Resort, Resort in Kenya, Accommodation in Kenya, Hotel booking Kenya, Vacation resort Kenya, Kajiado resort, Isinya resort, wedding venue Kenya, conference resort Nairobi" },
+      { property: "og:title", content: "Tumaini Gardens Resort — Best Resort in Kenya, Isinya Kajiado" },
+      { property: "og:description", content: "Cottages, pool, organic farm & event gardens along Nairobi-Namanga Highway. Book Kenya's serene garden resort." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: img4.url },
-      { property: "og:url", content: "/" },
+      { property: "og:image", content: `${DOMAIN}${img4.url}` },
+      { property: "og:url", content: DOMAIN },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: img4.url },
+      { name: "twitter:image", content: `${DOMAIN}${img4.url}` },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: DOMAIN },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" },
+      { rel: "preload", as: "image", href: imgGarden.url, fetchpriority: "high" } as unknown as { rel: string; href: string },
     ],
     scripts: [{
       type: "application/ld+json",
       children: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Lodging",
-        name: "Tumaini Gardens Isinya",
-        image: [img4.url, img2.url, img6.url],
+        "@type": "Hotel",
+        name: "Tumaini Gardens Resort",
+        image: [`${DOMAIN}${img4.url}`, `${DOMAIN}${img2.url}`, `${DOMAIN}${img6.url}`],
         telephone: "+254759473510",
+        url: DOMAIN,
+        priceRange: "KES 7,500 – 22,000",
         address: { "@type": "PostalAddress", addressLocality: "Isinya", addressRegion: "Kajiado", addressCountry: "KE" },
-        amenityFeature: ["Swimming Pool", "Restaurant", "Conference Hall", "Free Parking", "Wi-Fi", "Gardens"],
+        amenityFeature: ["Swimming Pool", "Restaurant", "Conference Hall", "Free Parking", "Wi-Fi", "Organic Gardens", "Farm-to-Table"],
       }),
     }],
   }),
