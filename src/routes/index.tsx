@@ -92,6 +92,7 @@ function Home() {
       <OffersMarquee />
       <Stats />
       <About />
+      <FarmTeaser />
       <Stay />
       <Catering />
       <Facilities />
