@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import {
   MapPin, Phone, Users, Calendar, Wifi, Car, Utensils, Waves,
   Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download, Play,
+  Leaf, Shield, ChefHat, Wrench, BedDouble, HandHeart, Facebook, Instagram, Lock,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
@@ -11,6 +12,7 @@ import { UpdatesFeed } from "@/components/updates-feed";
 import { UtilityBar } from "@/components/utility-bar";
 import { Faq } from "@/components/faq";
 import brochure2025 from "@/assets/brochure-2025.pdf.asset.json";
+import farm26 from "@/assets/farm-26.jpg.asset.json";
 
 const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
 const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
