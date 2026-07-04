@@ -294,30 +294,87 @@ function Stats() {
 }
 
 function About() {
+  const departments = [
+    { icon: HandHeart, name: "Service Department", d: "Front-office, reservations & guest experience. Warm Kenyan hospitality end-to-end." },
+    { icon: BedDouble, name: "Housekeeping Department", d: "Spotless rooms, cottages & public areas — daily linen, deep-clean & turndown." },
+    { icon: ChefHat, name: "Kitchen Production", d: "Farm-to-table chefs cooking with fresh organic produce grown on our own farm." },
+    { icon: Wrench, name: "Maintenance", d: "24/7 property care — plumbing, electrical, pool & grounds upkeep." },
+    { icon: Shield, name: "Security Department", d: "Round-the-clock guarded property with secure parking for cars, buses & groups." },
+  ];
   return (
     <section id="about" className="mx-auto max-w-7xl px-5 py-24">
       <div className="grid items-center gap-12 md:grid-cols-2">
         <motion.div {...fadeUp} className="relative">
-          <img src={img1.url} alt="Tumaini Gardens landscaping" className="rounded-3xl shadow-soft" />
-          <img src={img3.url} alt="Tumaini Gardens sign" className="absolute -bottom-10 -right-4 hidden w-1/2 rounded-3xl border-8 border-background shadow-glow md:block" />
+          <img src={img1.url} alt="Tumaini Gardens Resort landscaped gardens in Isinya, Kajiado" loading="lazy" decoding="async" className="rounded-3xl shadow-soft w-full h-auto" />
+          <img src={img3.url} alt="Tumaini Gardens Resort welcome sign" loading="lazy" decoding="async" className="absolute -bottom-10 -right-4 hidden w-1/2 rounded-3xl border-8 border-background shadow-glow md:block" />
         </motion.div>
         <motion.div {...fadeUp}>
-          <p className="text-sm uppercase tracking-[0.3em] text-accent">About Tumaini</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold">About Tumaini</p>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">A garden of <span className="text-gradient-leaf">hope</span>, designed for memorable moments.</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
+          <p className="mt-6 text-foreground/85 leading-relaxed text-base sm:text-lg">
             Nestled just off the Nairobi-Namanga Highway, immediately after Merishaw School in Isinya,
-            Tumaini Gardens is a 1.5-hour escape from the city — yet a world away. Think manicured lawns,
-            blossoming flower beds, a glistening pool framed by palms, and warm cottages built for rest.
+            Tumaini Gardens Resort is a 1.5-hour escape from Nairobi — yet a world away. Manicured lawns,
+            blossoming flower beds, a glistening pool framed by palms, warm cottages, and our very own
+            <strong> organic farm</strong> that supplies almost every meal we serve.
           </p>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Whether you're planning an intimate getaway, a corporate retreat, a wedding under the trees,
-            or a Sunday picnic with family — Tumaini is built to host life's celebrations.
+          <p className="mt-4 text-foreground/85 leading-relaxed">
+            Tumaini uses <strong>its own farm-grown products</strong> — from bananas, oranges and citrus to
+            leafy greens, herbs and vegetables. Farm-to-fork, every day.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {["Weddings", "Team Building", "Conferences", "Honeymoons", "Picnics", "Day Trips"].map((t) => (
-              <span key={t} className="rounded-full border bg-secondary px-4 py-1.5 text-sm text-secondary-foreground">{t}</span>
-            ))}
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link to="/organic-farming" className="inline-flex items-center gap-2 rounded-full bg-gradient-leaf px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft hover:opacity-95">
+              <Leaf className="h-4 w-4" /> Explore our organic farm
+            </Link>
+            <Link to="/admin" className="inline-flex items-center gap-2 rounded-full border-2 border-primary/40 bg-card px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary/10">
+              <Lock className="h-4 w-4" /> Admin Login
+            </Link>
           </div>
+        </motion.div>
+      </div>
+
+      {/* Departments */}
+      <div className="mt-16">
+        <h3 className="font-display text-2xl sm:text-3xl text-center">Our Departments</h3>
+        <p className="mt-2 text-center text-foreground/75">Every stay is powered by our five specialised teams.</p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {departments.map((d, i) => (
+            <motion.div key={d.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+              className="rounded-2xl border bg-card p-5 shadow-soft hover:shadow-glow transition">
+              <d.icon className="h-8 w-8 text-primary" aria-hidden="true" />
+              <p className="mt-3 font-display text-base font-bold">{d.name}</p>
+              <p className="mt-1 text-xs text-foreground/75 leading-relaxed">{d.d}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-10 flex flex-wrap justify-center gap-3">
+        {["Weddings", "Team Building", "Conferences", "Honeymoons", "Picnics", "Day Trips", "Organic Farm Tours"].map((t) => (
+          <span key={t} className="rounded-full border bg-secondary px-4 py-1.5 text-sm text-secondary-foreground">{t}</span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// Organic Farm teaser
+function FarmTeaser() {
+  return (
+    <section className="relative overflow-hidden py-16 sm:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/10">
+      <div className="mx-auto max-w-7xl px-5 grid gap-8 md:grid-cols-2 items-center">
+        <motion.img {...fadeUp} src={farm26.url} alt="Tumaini Gardens organic farm beds with cabbages, herbs and shrubs" loading="lazy" decoding="async" className="rounded-3xl shadow-glow w-full h-auto" />
+        <motion.div {...fadeUp}>
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+            <Leaf className="h-4 w-4" /> Farm to Table
+          </span>
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl">We grow what we serve.</h2>
+          <p className="mt-4 text-foreground/85 leading-relaxed">
+            Bananas, oranges, kale, spinach, herbs and vegetables — grown on our own organic farm,
+            harvested the morning of service. Chemical-free, drip-irrigated and community-trained.
+          </p>
+          <Link to="/organic-farming" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-soft hover:opacity-95">
+            See our organic farm <ChevronRight className="h-4 w-4" />
+          </Link>
         </motion.div>
       </div>
     </section>
