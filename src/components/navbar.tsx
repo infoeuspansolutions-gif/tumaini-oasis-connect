@@ -85,9 +85,10 @@ export function Navbar() {
             <Search className="h-4 w-4" />
           </button>
           <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer"
-             className="hidden sm:inline-flex rounded-full bg-gradient-warm px-4 py-2 text-sm text-accent-foreground font-semibold shadow-soft hover:opacity-90">
-            Book Now
+             className="inline-flex items-center rounded-full bg-gradient-warm px-3 sm:px-4 py-2 text-xs sm:text-sm text-accent-foreground font-semibold shadow-soft hover:opacity-90 whitespace-nowrap">
+            Book
           </a>
+
           <button className="lg:hidden grid h-9 w-9 place-items-center rounded-full hover:bg-primary/10" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

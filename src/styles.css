@@ -112,11 +112,15 @@
     outline-offset: 2px;
     border-radius: 6px;
   }
-  /* Larger touch targets on mobile */
+  /* Larger touch targets on mobile (WCAG 2.5.5 / Apple 44pt) */
   @media (hover: none) and (pointer: coarse) {
-    button, a { min-height: 40px; }
+    button, a[href], [role="button"] { min-height: 44px; }
+    input, select, textarea { min-height: 44px; font-size: 16px; } /* 16px prevents iOS zoom */
   }
   img { max-width: 100%; height: auto; }
+  /* Lazy-loaded images fade in to hide loading pop */
+  img[loading="lazy"] { background: color-mix(in oklab, var(--color-muted) 60%, transparent); }
+
 }
 
 @layer utilities {
