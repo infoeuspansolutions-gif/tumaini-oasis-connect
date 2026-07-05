@@ -224,56 +224,88 @@ declare global {
 function LanguageSelector() {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState<{ code: string; label: string; flag: string }>(LANGS[0]);
+  const [ready, setReady] = useState(false);
 
+  // Load Google Translate widget once
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (document.getElementById("google-translate-script")) return;
+    if (document.getElementById("google_translate_element")) {
+      setReady(true);
+      return;
+    }
     const container = document.createElement("div");
     container.id = "google_translate_element";
-    container.style.display = "none";
+    container.style.cssText = "position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none;";
     document.body.appendChild(container);
 
     window.googleTranslateElementInit = () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       new (window as any).google.translate.TranslateElement(
-        { pageLanguage: "en", includedLanguages: LANGS.map((l) => l.code).join(","), autoDisplay: false },
-        "google_translate_element"
+        {
+          pageLanguage: "en",
+          includedLanguages: LANGS.map((l) => l.code).join(","),
+          autoDisplay: false,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
+        },
+        "google_translate_element",
       );
+      // Poll for the select element to appear
+      const check = setInterval(() => {
+        if (document.querySelector<HTMLSelectElement>("select.goog-te-combo")) {
+          setReady(true);
+          clearInterval(check);
+        }
+      }, 200);
+      setTimeout(() => clearInterval(check), 10000);
     };
-    const s = document.createElement("script");
-    s.id = "google-translate-script";
-    s.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    s.async = true;
-    document.body.appendChild(s);
+
+    if (!document.getElementById("google-translate-script")) {
+      const s = document.createElement("script");
+      s.id = "google-translate-script";
+      s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      s.async = true;
+      document.body.appendChild(s);
+    }
+
+    // Restore preferred language
+    try {
+      const saved = localStorage.getItem("preferredLang");
+      if (saved) {
+        const found = LANGS.find((l) => l.code === saved);
+        if (found) setCurrent(found);
+      }
+    } catch { /* ignore */ }
   }, []);
 
   const pick = (l: typeof LANGS[number]) => {
     setCurrent(l);
     setOpen(false);
     if (typeof window === "undefined") return;
-    // Google Translate reads the hash `#googtrans(source|target)` on load — most reliable.
+    try { localStorage.setItem("preferredLang", l.code); } catch { /* ignore */ }
+
+    const trigger = () => {
+      const sel = document.querySelector<HTMLSelectElement>("select.goog-te-combo");
+      if (!sel) return false;
+      sel.value = l.code === "en" ? "" : l.code;
+      sel.dispatchEvent(new Event("change", { bubbles: true }));
+      return true;
+    };
+
+    // If widget ready, translate live (no reload). Otherwise fall back to cookie + reload.
+    if (trigger()) return;
+
+    // Fallback: cookie + hash + reload
     const target = l.code === "en" ? "en" : l.code;
     const val = `/en/${target}`;
-    // Set cookie (multiple domain scopes) + hash for maximum reliability.
     const host = window.location.hostname;
     document.cookie = `googtrans=${val};path=/;max-age=31536000`;
     document.cookie = `googtrans=${val};path=/;domain=${host};max-age=31536000`;
     document.cookie = `googtrans=${val};path=/;domain=.${host};max-age=31536000`;
-    try { localStorage.setItem("preferredLang", l.code); } catch { /* ignore */ }
-    // Hash-based trigger — Google Translate honors this immediately on reload.
     window.location.hash = `#googtrans(en|${target})`;
-    window.location.reload();
+    setTimeout(() => window.location.reload(), 100);
   };
 
-  useEffect(() => {
-    // Read current cookie
-    if (typeof document === "undefined") return;
-    const m = document.cookie.match(/googtrans=\/[a-z-]+\/([a-zA-Z-]+)/);
-    if (m) {
-      const found = LANGS.find((l) => l.code === m[1]);
-      if (found) setCurrent(found);
-    }
-  }, []);
 
   const [query, setQuery] = useState("");
   const filtered = LANGS.filter((l) => l.label.toLowerCase().includes(query.toLowerCase()) || l.code.includes(query.toLowerCase()));
