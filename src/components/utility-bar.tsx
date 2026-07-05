@@ -312,10 +312,11 @@ function LanguageSelector() {
 
   return (
     <div className="relative">
-      <button onClick={() => setOpen((o) => !o)} className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white hover:bg-white/25">
+      <button onClick={() => setOpen((o) => !o)} className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white hover:bg-white/25" title={ready ? "Change language" : "Loading translator…"}>
         <Languages className="h-4 w-4" />
         <span>{current.flag} {current.label}</span>
       </button>
+
       {open && (
         <div className="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border bg-card p-2 shadow-glow">
           <input
