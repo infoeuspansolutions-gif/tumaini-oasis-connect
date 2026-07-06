@@ -58,7 +58,7 @@ export function Navbar() {
             </button>
           </div>
           <Link to="/" className="flex min-w-0 items-center gap-2">
-            <img src="/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" alt="Tumaini Gardens logo" className="h-10 w-10 shrink-0 rounded-full bg-black object-contain p-1 ring-2 ring-primary/30" />
+            <img src="https://tumainigardensresortisinya.lovable.app/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" alt="Tumaini Gardens logo" className="h-10 w-10 shrink-0 rounded-full bg-black object-contain p-1 ring-2 ring-primary/30" />
             <div className="min-w-0 leading-tight">
               <p className="truncate font-display text-base sm:text-lg font-bold text-foreground">Tumaini Gardens</p>
               <p className="hidden sm:block text-[10px] uppercase tracking-widest text-primary font-semibold">Isinya · Kajiado</p>
