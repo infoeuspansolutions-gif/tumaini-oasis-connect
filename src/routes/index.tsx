@@ -14,24 +14,26 @@ import { Faq } from "@/components/faq";
 import brochure2025 from "@/assets/brochure-2025.pdf.asset.json";
 import farm26 from "@/assets/farm-26.jpg.asset.json";
 
-const logo = { url: "/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png" };
-const img1 = { url: "/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg" };
-const img2 = { url: "/__l5e/assets-v1/c30c5df9-2f91-4d48-b171-228316c0156d/tumaini-2.jpg" };
-const img3 = { url: "/__l5e/assets-v1/058c1814-74f6-4099-bdfd-1b3b51f1daaa/tumaini-3.jpg" };
-const img4 = { url: "/__l5e/assets-v1/ed0bf124-d13d-41f9-8613-78b01b8b9b4e/tumaini-4.jpg" };
-const img5 = { url: "/__l5e/assets-v1/f2c1729e-9e37-46db-a643-e142da5cdd33/tumaini-5.jpg" };
-const img6 = { url: "/__l5e/assets-v1/fb01be86-51cc-4381-aae4-9d1e54644ff4/tumaini-6.jpg" };
-const img7 = { url: "/__l5e/assets-v1/de1ad3c7-fce9-4f24-a96c-2b427f1cf6fb/tumaini-7.jpg" };
-const img8 = { url: "/__l5e/assets-v1/6a1ce9bc-bfac-4eef-b159-8bf6b7ee12f0/tumaini-8.jpg" };
-const img9 = { url: "/__l5e/assets-v1/f3fe79d8-ea9e-48fc-922d-59408b8bb2d1/tumaini-9.jpg" };
+// Absolute CDN origin so images load on custom domains (e.g. Vercel) that don't proxy /__l5e/
+const CDN = "https://tumainigardensresortisinya.lovable.app";
+const logo = { url: `${CDN}/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png` };
+const img1 = { url: `${CDN}/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg` };
+const img2 = { url: `${CDN}/__l5e/assets-v1/c30c5df9-2f91-4d48-b171-228316c0156d/tumaini-2.jpg` };
+const img3 = { url: `${CDN}/__l5e/assets-v1/058c1814-74f6-4099-bdfd-1b3b51f1daaa/tumaini-3.jpg` };
+const img4 = { url: `${CDN}/__l5e/assets-v1/ed0bf124-d13d-41f9-8613-78b01b8b9b4e/tumaini-4.jpg` };
+const img5 = { url: `${CDN}/__l5e/assets-v1/f2c1729e-9e37-46db-a643-e142da5cdd33/tumaini-5.jpg` };
+const img6 = { url: `${CDN}/__l5e/assets-v1/fb01be86-51cc-4381-aae4-9d1e54644ff4/tumaini-6.jpg` };
+const img7 = { url: `${CDN}/__l5e/assets-v1/de1ad3c7-fce9-4f24-a96c-2b427f1cf6fb/tumaini-7.jpg` };
+const img8 = { url: `${CDN}/__l5e/assets-v1/6a1ce9bc-bfac-4eef-b159-8bf6b7ee12f0/tumaini-8.jpg` };
+const img9 = { url: `${CDN}/__l5e/assets-v1/f3fe79d8-ea9e-48fc-922d-59408b8bb2d1/tumaini-9.jpg` };
 void img8; void img5;
 // New uploads
-const imgEntrance = { url: "/__l5e/assets-v1/a09602b8-5477-448e-bd06-f41409fd8ae8/tumaini-entrance.jpg" };
-const imgTeam = { url: "/__l5e/assets-v1/16f40485-5099-4431-90eb-83703d45fe5b/tumaini-team.jpg" };
-const imgRoom = { url: "/__l5e/assets-v1/445a7b73-a853-40bc-812b-d663c2b045ed/tumaini-room.jpg" };
-const imgGarden = { url: "/__l5e/assets-v1/96471cd7-a8d5-4cda-9d64-101c9841e8e6/tumaini-garden.jpg" };
-const imgPool = { url: "/__l5e/assets-v1/95accc61-7d29-4561-ac3f-98b95457b149/tumaini-pool.jpg" };
-const imgPath = { url: "/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597964/tumaini-path.jpg" };
+const imgEntrance = { url: `${CDN}/__l5e/assets-v1/a09602b8-5477-448e-bd06-f41409fd8ae8/tumaini-entrance.jpg` };
+const imgTeam = { url: `${CDN}/__l5e/assets-v1/16f40485-5099-4431-90eb-83703d45fe5b/tumaini-team.jpg` };
+const imgRoom = { url: `${CDN}/__l5e/assets-v1/445a7b73-a853-40bc-812b-d663c2b045ed/tumaini-room.jpg` };
+const imgGarden = { url: `${CDN}/__l5e/assets-v1/96471cd7-a8d5-4cda-9d64-101c9841e8e6/tumaini-garden.jpg` };
+const imgPool = { url: `${CDN}/__l5e/assets-v1/95accc61-7d29-4561-ac3f-98b95457b149/tumaini-pool.jpg` };
+const imgPath = { url: `${CDN}/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597964/tumaini-path.jpg` };
 
 
 
