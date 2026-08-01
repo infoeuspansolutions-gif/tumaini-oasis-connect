@@ -11,10 +11,17 @@ export function SmartImage({ src, className = "", alt = "", ...rest }: Props) {
   const [status, setStatus] = useState<"loading" | "ok" | "error">("loading");
   const [attempt, setAttempt] = useState(0);
   const autoRetried = useRef(0);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     setStatus("loading");
   }, [src]);
+
+  // Cached images can finish loading before React attaches onLoad.
+  useEffect(() => {
+    const el = imgRef.current;
+    if (el?.complete && el.naturalWidth > 0) setStatus("ok");
+  });
 
   const retry = () => {
     setStatus("loading");
@@ -41,6 +48,7 @@ export function SmartImage({ src, className = "", alt = "", ...rest }: Props) {
         />
       )}
       <img
+        ref={imgRef}
         key={url}
         src={url}
         alt={alt}
