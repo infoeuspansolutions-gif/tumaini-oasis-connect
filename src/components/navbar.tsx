@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Home, Search, Leaf, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, Home, Search, Leaf, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const NAV = [
@@ -29,6 +29,17 @@ export function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        setSearchOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   useEffect(() => {
@@ -167,6 +178,9 @@ export function Navbar() {
               <div className="flex items-center gap-2">
                 <img src={LOGO} alt="" className="h-10 w-10 rounded-full bg-black object-contain p-1" />
                 <p className="font-display text-lg font-bold">Tumaini Gardens</p>
+                <button onClick={() => setOpen(false)} aria-label="Close menu" className="ml-auto grid h-11 w-11 place-items-center rounded-full hover:bg-primary/10">
+                  <X className="h-5 w-5" />
+                </button>
               </div>
               <div className="mt-5 flex flex-col gap-1">
                 {NAV.map((n) =>
