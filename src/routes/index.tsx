@@ -108,10 +108,36 @@ function Home() {
       <Faq />
       <Contact />
       <Footer />
+      <BestPrice />
+      <MobileActionBar />
       <WhatsAppButton />
       <AiChatWidget />
       <WelcomeRobot />
     </div>
+  );
+}
+
+function BestPrice() {
+  return null;
+}
+
+function MobileActionBar() {
+  return (
+    <nav
+      aria-label="Quick actions"
+      className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-border/60 bg-background/95 backdrop-blur md:hidden"
+    >
+      <a href="tel:+254759473510" className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs font-semibold text-foreground/85 active:bg-primary/10">
+        <Phone className="h-5 w-5 text-primary" /> Call
+      </a>
+      <a href="https://wa.me/254759473510?text=Hello%20Tumaini%20Gardens%2C%20I%27d%20like%20to%20book." target="_blank" rel="noreferrer"
+         className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs font-semibold text-foreground/85 active:bg-primary/10">
+        <MessageIcon /> WhatsApp
+      </a>
+      <a href="#stay" className="flex min-h-14 flex-col items-center justify-center gap-0.5 bg-gradient-warm text-xs font-bold text-accent-foreground">
+        <Calendar className="h-5 w-5" /> Book Now
+      </a>
+    </nav>
   );
 }
 
@@ -624,7 +650,7 @@ function Contact() {
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground"><Phone className="h-5 w-5" /></span>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Reservations</p>
-                <p className="font-medium group-hover:text-primary">+254 759 473 510 · +254 724 715 430</p>
+                <p className="font-medium group-hover:text-primary">+254 759 473 510</p>
               </div>
             </a>
             <a href="https://wa.me/254759473510" target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
@@ -639,7 +665,6 @@ function Contact() {
               <div className="min-w-0">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Email</p>
                 <p className="font-medium group-hover:text-primary break-all">warugimccreadie@tumainigardens.com</p>
-                <p className="font-medium group-hover:text-primary break-all">rose.njoroge@tumainigardens.com</p>
               </div>
             </a>
             <div className="flex items-center gap-4">
@@ -678,7 +703,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <SmartImage src={logo.url} alt="Tumaini Gardens logo" className="h-14 w-14 rounded-full bg-black object-contain p-1.5 ring-2 ring-white/40"  loading="lazy" decoding="async" />
+            <img src={logo.url} alt="Tumaini Gardens logo" className="h-14 w-14 rounded-full bg-black object-contain p-1.5 ring-2 ring-white/40"  loading="lazy" decoding="async" />
             <div>
               <p className="font-display text-2xl">Tumaini Gardens</p>
               <p className="text-xs uppercase tracking-widest opacity-80">Isinya · Kajiado · Kenya</p>

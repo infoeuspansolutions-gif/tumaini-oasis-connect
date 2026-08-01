@@ -9,7 +9,7 @@ const CATEGORIES = [
     icon: CreditCard,
     faqs: [
       { q: "What are your accommodation rates?", a: "Single: B&B KES 7,500 · Half-board 9,500 · Full-board 11,500. Double: B&B 9,500 · HB 13,000 · FB 16,500. Triple: B&B 11,500 · HB 16,750 · FB 22,000. Special couple & group rates on request." },
-      { q: "How do I book a room or event?", a: "Call/WhatsApp +254 759 473 510 or +254 724 715 430, or email warugimccreadie@tumainigardens.com / rose.njoroge@tumainigardens.com." },
+      { q: "How do I book a room or event?", a: "Call/WhatsApp +254 759 473 510 or email warugimccreadie@tumainigardens.com." },
       { q: "Do you accept M-Pesa & cards?", a: "Yes — M-Pesa, Visa, Mastercard and bank transfer are all accepted." },
     ],
   },
