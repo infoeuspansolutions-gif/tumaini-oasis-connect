@@ -37,7 +37,7 @@ export function WelcomeRobot() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 60, scale: 0.6 }}
           transition={{ type: "spring", damping: 14, stiffness: 180 }}
-          className="pointer-events-none fixed bottom-24 left-1/2 z-30 flex w-[min(92vw,28rem)] -translate-x-1/2 items-end gap-3 md:bottom-6 md:left-24 md:translate-x-0"
+          className="pointer-events-none fixed bottom-36 left-1/2 z-30 flex w-[min(92vw,28rem)] -translate-x-1/2 items-end gap-3 md:bottom-6 md:left-24 md:translate-x-0"
         >
           {/* Robot */}
           <motion.div
@@ -57,7 +57,7 @@ export function WelcomeRobot() {
               width={1024}
               height={1024}
               loading="lazy"
-              className="h-28 w-28 select-none object-contain md:h-36 md:w-36"
+              className="h-20 w-20 select-none object-contain md:h-36 md:w-36"
               draggable={false}
             />
           </motion.div>
