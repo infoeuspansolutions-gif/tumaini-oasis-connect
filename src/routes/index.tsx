@@ -6,7 +6,7 @@ import {
   Leaf, Shield, ChefHat, Wrench, BedDouble, HandHeart, Facebook, Instagram, Lock,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
-import { AiChatWidget, WhatsAppButton } from "@/components/floating-widgets";
+import { AiChatWidget, WhatsAppButton, CallButton } from "@/components/floating-widgets";
 import { WelcomeRobot } from "@/components/welcome-robot";
 import { UpdatesFeed } from "@/components/updates-feed";
 import { UtilityBar } from "@/components/utility-bar";
@@ -111,6 +111,7 @@ function Home() {
       <Footer />
       <MobileActionBar />
       <WhatsAppButton />
+      <CallButton />
       <AiChatWidget />
       <WelcomeRobot />
     </div>
