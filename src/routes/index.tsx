@@ -88,7 +88,7 @@ const fadeUp = {
 
 function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden pt-9">
+    <div className="min-h-screen overflow-x-hidden pt-9 pb-16 md:pb-0">
       <UtilityBar />
       <Navbar />
       <Hero />
@@ -104,11 +104,11 @@ function Home() {
       <Videos />
       <UpdatesFeed />
       <Gallery />
+      <BestPrice />
       <Testimonials />
       <Faq />
       <Contact />
       <Footer />
-      <BestPrice />
       <MobileActionBar />
       <WhatsAppButton />
       <AiChatWidget />
@@ -118,7 +118,30 @@ function Home() {
 }
 
 function BestPrice() {
-  return null;
+  const perks = [
+    { t: "Best Price Guarantee", d: "Book direct on WhatsApp or via tumainigardensresortisinya.co.ke and you'll never pay more than any online rate." },
+    { t: "No booking fees", d: "Pay at the resort — no card charges, no hidden extras on your quote." },
+    { t: "Free parking & Wi-Fi", d: "Secure guarded parking for cars, vans and buses, plus fast Wi-Fi throughout." },
+  ];
+  return (
+    <section aria-labelledby="best-price" className="border-y bg-secondary/40 py-12">
+      <div className="mx-auto max-w-7xl px-5">
+        <h2 id="best-price" className="font-display text-2xl sm:text-3xl text-center">
+          Our <span className="text-gradient-leaf">Best Price Guarantee</span>
+        </h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {perks.map((p, i) => (
+            <motion.div key={p.t} {...fadeUp} transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="rounded-2xl border bg-card p-5 shadow-soft">
+              <Shield className="h-7 w-7 text-primary" aria-hidden="true" />
+              <p className="mt-3 font-display text-lg font-bold">{p.t}</p>
+              <p className="mt-1 text-sm text-foreground/80 leading-relaxed">{p.d}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function MobileActionBar() {
