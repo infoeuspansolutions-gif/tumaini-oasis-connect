@@ -349,13 +349,13 @@ export function UtilityBar() {
         body { top: 0 !important; }
         .goog-te-gadget { font-size: 0 !important; }
       `}</style>
-      <div className="fixed top-0 inset-x-0 z-40 bg-gradient-to-r from-primary via-leaf to-primary text-white shadow-md">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-1.5">
-          <div className="flex items-center gap-2">
+      <div className="fixed top-0 inset-x-0 z-20 h-9 bg-gradient-to-r from-primary via-leaf to-primary text-white shadow-md">
+        <div className="mx-auto flex h-9 max-w-7xl items-center gap-2 overflow-x-auto overflow-y-hidden whitespace-nowrap px-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex shrink-0 items-center gap-2">
             <WeatherWidget />
             <span className="hidden sm:inline text-xs opacity-80">🌿 Karibu Tumaini Gardens</span>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-2">
             <VoiceGreeting />
             <GoogleSearch />
             <CurrencyWidget />
@@ -363,6 +363,7 @@ export function UtilityBar() {
           </div>
         </div>
       </div>
+
     </>
   );
 }
