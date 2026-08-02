@@ -9,7 +9,7 @@ import farm24 from "@/assets/farm-24.jpg.asset.json";
 import farm25 from "@/assets/farm-25.jpg.asset.json";
 import farm26 from "@/assets/farm-26.jpg.asset.json";
 
-const DOMAIN = "https://tumainigardensresort.co.ke";
+const DOMAIN = "https://tumainigardensresortisinya.lovable.app";
 
 export const Route = createFileRoute("/organic-farming")({
   head: () => ({
