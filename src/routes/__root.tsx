@@ -106,11 +106,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Resort",
-        "@id": "https://tumainigardensresortisinya.lovable.app/#resort",
+        "@id": "https://tumainigardensresortisinya.co.ke/#resort",
         name: "Tumaini Gardens Resort",
         alternateName: ["Tumaini Gardens Isinya", "Tumaini Gardens Resort Isinya"],
         description: "Serene garden resort, lodge and event venue 60 km from Nairobi along the Nairobi-Namanga Highway.",
-        url: "https://tumainigardensresortisinya.lovable.app",
+        url: "https://tumainigardensresortisinya.co.ke",
         telephone: "+254759473510",
         priceRange: "KES 7,500 – 22,000",
         image: [
