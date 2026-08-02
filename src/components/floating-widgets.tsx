@@ -5,24 +5,38 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { X, Send, Sparkles, Phone } from "lucide-react";
 
+const SUGGESTIONS = [
+  "Room rates & availability",
+  "Wedding & event packages",
+  "How do I get there?",
+  "Conference packages",
+];
+
 export function AiChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { messages, sendMessage, status } = useChat({
+  const { messages, sendMessage, status, error, regenerate } = useChat({
     transport: new DefaultChatTransport({ api: "/api/chat" }),
   });
+  const busy = status === "submitted" || status === "streaming";
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages]);
+  }, [messages, status]);
+
+  const send = (text: string) => {
+    const t = text.trim();
+    if (!t || busy) return;
+    sendMessage({ text: t });
+    setInput("");
+  };
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim()) return;
-    sendMessage({ text: input });
-    setInput("");
+    send(input);
   };
+
 
   return (
     <>
