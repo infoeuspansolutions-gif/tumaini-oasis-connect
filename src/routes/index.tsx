@@ -38,15 +38,15 @@ const imgPath = { url: `${CDN}/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597
 
 
 
-const DOMAIN = "https://tumainigardensresort.co.ke";
+const DOMAIN = "https://tumainigardensresortisinya.lovable.app";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tumaini Gardens Resort — Best Resort in Kenya · Isinya, Kajiado" },
-      { name: "description", content: "Tumaini Gardens Resort: accommodation, weddings, conferences & organic farm-to-table dining just 60 km from Nairobi. Best resort in Kenya for family, corporate & honeymoon stays." },
+      { title: "Tumaini Gardens Isinya — Best Garden Resort in Kenya, Kajiado" },
+      { name: "description", content: "Tumaini Gardens Isinya (Tumaini Gardens Resort): accommodation, weddings, conferences & organic farm-to-table dining just 60 km from Nairobi. Best resort in Kenya for family, corporate & honeymoon stays." },
       { name: "keywords", content: "Tumaini Gardens Resort, Resort in Kenya, Accommodation in Kenya, Hotel booking Kenya, Vacation resort Kenya, Kajiado resort, Isinya resort, wedding venue Kenya, conference resort Nairobi" },
-      { property: "og:title", content: "Tumaini Gardens Resort — Best Resort in Kenya, Isinya Kajiado" },
+      { property: "og:title", content: "Tumaini Gardens Isinya — Best Garden Resort in Kenya" },
       { property: "og:description", content: "Cottages, pool, organic farm & event gardens along Nairobi-Namanga Highway. Book Kenya's serene garden resort." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: `${img4.url}` },
@@ -750,7 +750,7 @@ function Footer() {
             <li><a href="tel:+254759473510" className="hover:underline">+254 759 473 510</a></li>
             <li><a href="https://wa.me/254759473510" target="_blank" rel="noreferrer" className="hover:underline">WhatsApp</a></li>
             <li><Link to="/organic-farming" className="hover:underline">🌱 Organic Farm</Link></li>
-            <li><a href="https://tumainigardensresort.co.ke/sitemap.xml" className="hover:underline">Sitemap</a></li>
+            <li><a href="https://tumainigardensresortisinya.lovable.app/sitemap.xml" className="hover:underline">Sitemap</a></li>
           </ul>
           <div className="mt-5 flex items-center gap-3" aria-label="Social media">
             <a href="https://www.facebook.com/100064759146824/posts/1255145159987444/" target="_blank" rel="noreferrer" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20"><Facebook className="h-5 w-5" /></a>
@@ -782,7 +782,7 @@ function Footer() {
           </Link>
         </div>
         <div className="mx-auto max-w-7xl px-5 pb-6 text-xs opacity-70 text-center md:text-left">
-          © {new Date().getFullYear()} Tumaini Gardens Resort · Isinya, Kajiado · <a href="https://tumainigardensresort.co.ke" className="underline">tumainigardensresort.co.ke</a>
+          © {new Date().getFullYear()} Tumaini Gardens Resort · Isinya, Kajiado · <a href="https://tumainigardensresortisinya.lovable.app" className="underline">tumainigardensresortisinya.lovable.app</a>
         </div>
       </div>
     </footer>

@@ -5,24 +5,38 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { X, Send, Sparkles, Phone } from "lucide-react";
 
+const SUGGESTIONS = [
+  "Room rates & availability",
+  "Wedding & event packages",
+  "How do I get there?",
+  "Conference packages",
+];
+
 export function AiChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { messages, sendMessage, status } = useChat({
+  const { messages, sendMessage, status, error, regenerate } = useChat({
     transport: new DefaultChatTransport({ api: "/api/chat" }),
   });
+  const busy = status === "submitted" || status === "streaming";
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages]);
+  }, [messages, status]);
+
+  const send = (text: string) => {
+    const t = text.trim();
+    if (!t || busy) return;
+    sendMessage({ text: t });
+    setInput("");
+  };
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim()) return;
-    sendMessage({ text: input });
-    setInput("");
+    send(input);
   };
+
 
   return (
     <>
@@ -56,9 +70,23 @@ export function AiChatWidget() {
 
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto p-4 text-sm">
               {messages.length === 0 && (
-                <div className="rounded-2xl bg-muted p-3 text-muted-foreground">
-                  Hi! 🌿 I'm your Tumaini Gardens concierge. Ask me about cottages, events, the pool, directions, or pricing.
-                </div>
+                <>
+                  <div className="rounded-2xl bg-muted p-3 text-muted-foreground">
+                    Hi! 🌿 I'm your Tumaini Gardens concierge. Ask me about cottages, events, the pool, directions, or pricing.
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {SUGGESTIONS.map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => send(s)}
+                        className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary hover:bg-primary/10"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </>
               )}
               {messages.map((m) => (
                 <div key={m.id} className={m.role === "user" ? "flex justify-end" : "flex justify-start"}>
@@ -74,13 +102,19 @@ export function AiChatWidget() {
                 </div>
               ))}
               {status === "error" && (
-                <div className="rounded-2xl bg-destructive/10 p-3 text-xs text-destructive">
-                  Sorry, the assistant hiccuped. Please send your message again.
+                <div className="space-y-2 rounded-2xl bg-destructive/10 p-3 text-xs text-destructive">
+                  <p>Sorry, the assistant couldn't reply{error?.message ? ` (${error.message})` : ""}.</p>
+                  <button
+                    type="button"
+                    onClick={() => regenerate()}
+                    className="rounded-full bg-destructive px-3 py-1 font-medium text-destructive-foreground"
+                  >
+                    Try again
+                  </button>
+                  <p>Or WhatsApp us on +254 759 473 510.</p>
                 </div>
               )}
-              {status === "submitted" && (
-                <div className="text-xs text-muted-foreground">Thinking…</div>
-              )}
+              {busy && <div className="text-xs text-muted-foreground">Tumaini Assistant is typing…</div>}
             </div>
 
             <form onSubmit={submit} className="flex gap-2 border-t bg-background p-3">
@@ -89,12 +123,19 @@ export function AiChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about cottages, events…"
                 aria-label="Message the Tumaini Assistant"
-                className="min-w-0 flex-1 rounded-full border bg-background px-4 py-2 text-base outline-none focus:ring-2 focus:ring-ring"
+                disabled={busy}
+                className="min-w-0 flex-1 rounded-full border bg-background px-4 py-2 text-base outline-none focus:ring-2 focus:ring-ring disabled:opacity-60"
               />
-              <button type="submit" className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground hover:opacity-90">
+              <button
+                type="submit"
+                disabled={busy || !input.trim()}
+                aria-label="Send message"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-50"
+              >
                 <Send className="h-4 w-4" />
               </button>
             </form>
+
           </motion.div>
         )}
       </AnimatePresence>
