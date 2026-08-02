@@ -43,10 +43,10 @@ const DOMAIN = "https://tumainigardensresortisinya.lovable.app";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tumaini Gardens Resort — Best Resort in Kenya · Isinya, Kajiado" },
-      { name: "description", content: "Tumaini Gardens Resort: accommodation, weddings, conferences & organic farm-to-table dining just 60 km from Nairobi. Best resort in Kenya for family, corporate & honeymoon stays." },
+      { title: "Tumaini Gardens Isinya — Best Garden Resort in Kenya, Kajiado" },
+      { name: "description", content: "Tumaini Gardens Isinya (Tumaini Gardens Resort): accommodation, weddings, conferences & organic farm-to-table dining just 60 km from Nairobi. Best resort in Kenya for family, corporate & honeymoon stays." },
       { name: "keywords", content: "Tumaini Gardens Resort, Resort in Kenya, Accommodation in Kenya, Hotel booking Kenya, Vacation resort Kenya, Kajiado resort, Isinya resort, wedding venue Kenya, conference resort Nairobi" },
-      { property: "og:title", content: "Tumaini Gardens Resort — Best Resort in Kenya, Isinya Kajiado" },
+      { property: "og:title", content: "Tumaini Gardens Isinya — Best Garden Resort in Kenya" },
       { property: "og:description", content: "Cottages, pool, organic farm & event gardens along Nairobi-Namanga Highway. Book Kenya's serene garden resort." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: `${img4.url}` },
