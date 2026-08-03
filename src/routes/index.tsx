@@ -102,7 +102,9 @@ function Home() {
       <Events />
       <Adverts />
       <Videos />
+      <WeatherPanel />
       <UpdatesFeed />
+
       <Gallery />
       <BestPrice />
       <Testimonials />
