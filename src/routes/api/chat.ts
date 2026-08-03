@@ -1,14 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { UIMessage } from "ai";
 
+const corsHeaders: Record<string, string> = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "content-type, x-lovable-aig-run-id",
+};
+
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
+      OPTIONS: async () => new Response(null, { status: 204, headers: corsHeaders }),
       POST: async ({ request }) => {
         try {
           const key = process.env.LOVABLE_API_KEY;
           if (!key) {
-            return Response.json({ error: "AI assistant is not configured yet." }, { status: 500 });
+            return Response.json(
+              { error: "AI assistant is not configured yet." },
+              { status: 500, headers: corsHeaders },
+            );
           }
           const body = (await request.json()) as { messages?: UIMessage[] };
           const messages = body.messages ?? [];
