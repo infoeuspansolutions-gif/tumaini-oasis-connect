@@ -26,11 +26,8 @@ export function AiChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
-  const transport = useRef<DefaultChatTransport<never> | null>(null);
-  if (!transport.current) transport.current = new DefaultChatTransport({ api: chatEndpoint() }) as never;
-  const { messages, sendMessage, status, error, regenerate } = useChat({
-    transport: transport.current!,
-  });
+  const [transport] = useState(() => new DefaultChatTransport({ api: chatEndpoint() }));
+  const { messages, sendMessage, status, error, regenerate } = useChat({ transport });
   const busy = status === "submitted" || status === "streaming";
 
   useEffect(() => {
