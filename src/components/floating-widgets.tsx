@@ -12,12 +12,24 @@ const SUGGESTIONS = [
   "Conference packages",
 ];
 
+// The AI key only lives on the Lovable-hosted deployment, so any other host
+// (e.g. the .co.ke Vercel mirror) must call the Lovable endpoint directly.
+const AI_HOST = "https://tumainigardensresortisinya.lovable.app";
+function chatEndpoint() {
+  if (typeof window === "undefined") return "/api/chat";
+  const h = window.location.hostname;
+  const local = h === "localhost" || h === "127.0.0.1" || h.endsWith(".lovable.app") || h.endsWith(".lovableproject.com");
+  return local ? "/api/chat" : `${AI_HOST}/api/chat`;
+}
+
 export function AiChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const transport = useRef<DefaultChatTransport<never> | null>(null);
+  if (!transport.current) transport.current = new DefaultChatTransport({ api: chatEndpoint() }) as never;
   const { messages, sendMessage, status, error, regenerate } = useChat({
-    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    transport: transport.current!,
   });
   const busy = status === "submitted" || status === "streaming";
 
