@@ -237,14 +237,14 @@ export function WeatherPanel() {
         </p>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-[1.15fr_1fr]">
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
         {/* hero weather card */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary via-primary to-accent p-6 sm:p-8 text-primary-foreground shadow-xl"
+          className="relative min-w-0 overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary via-primary to-accent p-6 sm:p-8 text-primary-foreground shadow-xl"
         >
           <SkyFx code={data?.current.code ?? 1} isDay={data?.current.isDay ?? true} />
           <div className="relative">
