@@ -1,17 +1,8 @@
 import { useEffect, useState } from "react";
-import { Cloud, Sun, CloudRain, CloudSnow, Search, Volume2, VolumeX, Languages, ArrowRightLeft } from "lucide-react";
+import { Cloud, Sun, CloudRain, CloudSnow, Search, Volume2, VolumeX, Languages, ArrowRightLeft, Droplets, Wind } from "lucide-react";
+import { useIsinyaWeather } from "@/components/weather-panel";
 
 // ---------- Weather (Open-Meteo, no key) ----------
-function useWeather() {
-  const [data, setData] = useState<{ temp: number; code: number } | null>(null);
-  useEffect(() => {
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=-1.6833&longitude=36.85&current=temperature_2m,weather_code&timezone=Africa/Nairobi")
-      .then((r) => r.json())
-      .then((j) => setData({ temp: Math.round(j.current.temperature_2m), code: j.current.weather_code }))
-      .catch(() => {});
-  }, []);
-  return data;
-}
 function WeatherIcon({ code }: { code: number }) {
   if (code === 0 || code === 1) return <Sun className="h-4 w-4" />;
   if (code >= 71 && code <= 77) return <CloudSnow className="h-4 w-4" />;
@@ -19,14 +10,51 @@ function WeatherIcon({ code }: { code: number }) {
   return <Cloud className="h-4 w-4" />;
 }
 function WeatherWidget() {
-  const w = useWeather();
+  const { data, label } = useIsinyaWeather();
+  const [open, setOpen] = useState(false);
   return (
-    <div className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-white">
-      {w ? <WeatherIcon code={w.code} /> : <Cloud className="h-4 w-4 animate-pulse" />}
-      <span className="text-xs font-semibold">Isinya {w ? `${w.temp}°C` : "…"}</span>
+    <div className="relative">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-label="Live Isinya weather"
+        className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-white hover:bg-white/25"
+      >
+        {data ? <WeatherIcon code={data.current.code} /> : <Cloud className="h-4 w-4 animate-pulse" />}
+        <span className="text-xs font-semibold">Isinya {data ? `${data.current.temp}°C` : "…"}</span>
+      </button>
+      {open && (
+        <div className="absolute left-0 top-full z-50 mt-2 w-64 rounded-2xl border bg-card p-3 text-foreground shadow-glow">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">Live weather · Isinya</p>
+          {data ? (
+            <>
+              <p className="mt-1 text-2xl font-bold tabular-nums">{data.current.temp}°C</p>
+              <p className="text-xs font-semibold text-muted-foreground">{label(data.current.code)} · feels {data.current.feels}°C</p>
+              <div className="mt-2 flex items-center gap-3 text-xs font-semibold">
+                <span className="inline-flex items-center gap-1"><Droplets className="h-3.5 w-3.5 text-accent" />{data.current.humidity}%</span>
+                <span className="inline-flex items-center gap-1"><Wind className="h-3.5 w-3.5 text-accent" />{data.current.wind} km/h</span>
+              </div>
+              <div className="mt-3 grid grid-cols-4 gap-1">
+                {data.days.slice(0, 4).map((d, i) => (
+                  <div key={d.date} className="rounded-lg bg-secondary/60 p-1.5 text-center">
+                    <p className="text-[10px] font-bold">{i === 0 ? "Today" : new Date(d.date).toLocaleDateString("en-GB", { weekday: "short" })}</p>
+                    <p className="text-[11px] font-bold tabular-nums">{d.max}°</p>
+                  </div>
+                ))}
+              </div>
+              <a href="#weather" onClick={() => setOpen(false)} className="mt-3 block rounded-lg bg-primary py-1.5 text-center text-xs font-bold text-primary-foreground">
+                Full forecast
+              </a>
+            </>
+          ) : (
+            <p className="mt-2 text-xs font-semibold text-muted-foreground">Fetching live conditions…</p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
+
 
 // ---------- Currency (exchangerate.host) ----------
 function CurrencyWidget() {
