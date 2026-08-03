@@ -124,14 +124,15 @@ ${dynamicContext}
 
           const response = result.toUIMessageStreamResponse({
             headers: getLovableAiGatewayResponseHeaders(undefined, {
+              ...corsHeaders,
               ...(initialRunId ? { "X-Lovable-AIG-Run-ID": initialRunId } : {}),
             }),
           });
 
-          return withLovableAiGatewayRunIdHeader(response, gateway);
+          return withLovableAiGatewayRunIdHeader(response, gateway, corsHeaders);
         } catch (err) {
           console.error("chat handler error", err);
-          return new Response(JSON.stringify({ error: String(err) }), { status: 500, headers: { "content-type": "application/json" } });
+          return new Response(JSON.stringify({ error: String(err) }), { status: 500, headers: { ...corsHeaders, "content-type": "application/json" } });
         }
       },
     },
