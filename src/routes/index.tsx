@@ -11,6 +11,8 @@ import { WelcomeRobot } from "@/components/welcome-robot";
 import { UpdatesFeed } from "@/components/updates-feed";
 import { UtilityBar } from "@/components/utility-bar";
 import { Faq } from "@/components/faq";
+import { WeatherPanel } from "@/components/weather-panel";
+
 import { SmartImage } from "@/components/smart-image";
 import brochure2025 from "@/assets/brochure-2025.pdf.asset.json";
 import farm26 from "@/assets/farm-26.jpg.asset.json";
