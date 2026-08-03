@@ -280,8 +280,8 @@ export function WeatherPanel() {
                   </motion.div>
                   <div>
                     <p className="font-display text-6xl sm:text-7xl font-bold leading-none tabular-nums">
-                      {data ? data.current.temp : "--"}°
-                      <span className="align-top text-2xl sm:text-3xl">C</span>
+                      {data ? data.current.temp : "--"}
+                      <span className="ml-1 align-top text-2xl sm:text-3xl font-bold">°C</span>
                     </p>
                     <p className="mt-1 text-base sm:text-lg font-bold">
                       {data ? label(data.current.code) : "Loading live conditions…"}
