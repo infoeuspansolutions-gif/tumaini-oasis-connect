@@ -292,7 +292,7 @@ export function WeatherPanel() {
                   </div>
                 </div>
 
-                <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
                   {[
                     { icon: <Droplets className="h-4 w-4" />, l: "Humidity", v: data ? `${data.current.humidity}%` : "--" },
                     { icon: <Wind className="h-4 w-4" />, l: "Wind", v: data ? `${data.current.wind} km/h` : "--" },
@@ -304,7 +304,7 @@ export function WeatherPanel() {
                     { icon: <Sunset className="h-4 w-4" />, l: "Sunset", v: data ? timeShort(data.sunset) : "--" },
                   ].map((m) => (
                     <div key={m.l} className="rounded-2xl bg-primary-foreground/15 p-3 backdrop-blur-sm">
-                      <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide opacity-90">
+                      <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide opacity-90 whitespace-nowrap">
                         {m.icon} {m.l}
                       </span>
                       <p className="mt-1 text-lg font-bold tabular-nums">{m.v}</p>
@@ -328,11 +328,11 @@ export function WeatherPanel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-col gap-5"
+          className="flex min-w-0 flex-col gap-5"
         >
-          <div className="rounded-3xl border bg-card p-5 shadow-sm">
+          <div className="min-w-0 rounded-3xl border bg-card p-5 shadow-sm">
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-primary">Next 12 hours</h3>
-            <div className="flex gap-3 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch]">
+            <div className="flex w-full gap-3 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch]">
               {(data?.hours ?? Array.from({ length: 8 }, () => null)).map((h, i) => {
                 const pct = h && maxTemp !== minTemp ? ((h.temp - minTemp) / (maxTemp - minTemp)) * 100 : 50;
                 return (
