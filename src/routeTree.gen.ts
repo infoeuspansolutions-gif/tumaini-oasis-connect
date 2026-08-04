@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as OrganicFarmingRouteImport } from './routes/organic-farming'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AccommodationBrochureRouteImport } from './routes/accommodation-brochure'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdminSettingsRouteImport } from './routes/admin_.settings'
@@ -37,6 +38,11 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccommodationBrochureRoute = AccommodationBrochureRouteImport.update({
+  id: '/accommodation-brochure',
+  path: '/accommodation-brochure',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,6 +61,7 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accommodation-brochure': typeof AccommodationBrochureRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/organic-farming': typeof OrganicFarmingRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accommodation-brochure': typeof AccommodationBrochureRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/organic-farming': typeof OrganicFarmingRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accommodation-brochure': typeof AccommodationBrochureRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/organic-farming': typeof OrganicFarmingRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/accommodation-brochure'
     | '/admin'
     | '/auth'
     | '/organic-farming'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/accommodation-brochure'
     | '/admin'
     | '/auth'
     | '/organic-farming'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/accommodation-brochure'
     | '/admin'
     | '/auth'
     | '/organic-farming'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccommodationBrochureRoute: typeof AccommodationBrochureRoute
   AdminRoute: typeof AdminRoute
   AuthRoute: typeof AuthRoute
   OrganicFarmingRoute: typeof OrganicFarmingRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accommodation-brochure': {
+      id: '/accommodation-brochure'
+      path: '/accommodation-brochure'
+      fullPath: '/accommodation-brochure'
+      preLoaderRoute: typeof AccommodationBrochureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccommodationBrochureRoute: AccommodationBrochureRoute,
   AdminRoute: AdminRoute,
   AuthRoute: AuthRoute,
   OrganicFarmingRoute: OrganicFarmingRoute,
@@ -187,13 +208,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

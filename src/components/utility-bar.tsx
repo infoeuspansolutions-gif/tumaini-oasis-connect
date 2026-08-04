@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Cloud, Sun, CloudRain, CloudSnow, Search, Volume2, VolumeX, Languages, ArrowRightLeft, Droplets, Wind } from "lucide-react";
+import { Cloud, Sun, CloudRain, CloudSnow, Search, Volume2, VolumeX, Languages, ArrowRightLeft, Droplets, Wind, Clock } from "lucide-react";
 import { useIsinyaWeather } from "@/components/weather-panel";
 
 // ---------- Weather (Open-Meteo, no key) ----------
@@ -368,7 +368,35 @@ function LanguageSelector() {
   );
 }
 
+// ---------- Real-time clock (Nairobi / EAT) ----------
+function LiveClock() {
+  const [now, setNow] = useState<Date | null>(null);
+  useEffect(() => {
+    setNow(new Date());
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const time = now
+    ? now.toLocaleTimeString("en-GB", { timeZone: "Africa/Nairobi", hour: "2-digit", minute: "2-digit", second: "2-digit" })
+    : "--:--:--";
+  const date = now
+    ? now.toLocaleDateString("en-GB", { timeZone: "Africa/Nairobi", weekday: "short", day: "numeric", month: "short" })
+    : "";
+  return (
+    <div
+      className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-white"
+      title="Live local time in Isinya, Kenya (EAT)"
+      aria-label={`Local time in Isinya ${time}`}
+    >
+      <Clock className="h-4 w-4" />
+      <span className="text-xs font-bold tabular-nums">{time}</span>
+      <span className="hidden md:inline text-[10px] font-semibold opacity-80">{date} · EAT</span>
+    </div>
+  );
+}
+
 export function UtilityBar() {
+
   return (
     <>
       {/* Hide Google Translate top banner + tooltip */}
@@ -381,8 +409,10 @@ export function UtilityBar() {
         <div className="mx-auto flex h-9 max-w-7xl items-center gap-2 overflow-x-auto overflow-y-hidden whitespace-nowrap px-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="flex shrink-0 items-center gap-2">
             <WeatherWidget />
-            <span className="hidden sm:inline text-xs opacity-80">🌿 Karibu Tumaini Gardens</span>
+            <LiveClock />
+            <span className="hidden lg:inline text-xs opacity-80">🌿 Karibu Tumaini Gardens</span>
           </div>
+
           <div className="ml-auto flex shrink-0 items-center gap-2">
             <VoiceGreeting />
             <GoogleSearch />

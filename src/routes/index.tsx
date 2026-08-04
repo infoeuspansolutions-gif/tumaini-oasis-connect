@@ -14,7 +14,6 @@ import { Faq } from "@/components/faq";
 import { WeatherPanel } from "@/components/weather-panel";
 
 import { SmartImage } from "@/components/smart-image";
-import brochure2025 from "@/assets/brochure-2025.pdf.asset.json";
 import farm26 from "@/assets/farm-26.jpg.asset.json";
 
 // Absolute CDN origin so images load on custom domains (e.g. Vercel) that don't proxy /__l5e/
@@ -703,9 +702,10 @@ function Contact() {
                 <p className="text-xs text-muted-foreground">Facebook: Tumaini Gardens Isinya</p>
               </div>
             </div>
-            <a href={brochure2025.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-primary hover:underline">
+            <a href="/accommodation-brochure" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-primary hover:underline">
               <Download className="h-4 w-4" /> Download 2025 Accommodation Brochure (PDF)
             </a>
+
           </div>
         </motion.div>
         <motion.div {...fadeUp} className="overflow-hidden rounded-3xl shadow-glow">
