@@ -703,9 +703,10 @@ function Contact() {
                 <p className="text-xs text-muted-foreground">Facebook: Tumaini Gardens Isinya</p>
               </div>
             </div>
-            <a href={brochure2025.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-primary hover:underline">
+            <a href="/accommodation-brochure" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-primary hover:underline">
               <Download className="h-4 w-4" /> Download 2025 Accommodation Brochure (PDF)
             </a>
+
           </div>
         </motion.div>
         <motion.div {...fadeUp} className="overflow-hidden rounded-3xl shadow-glow">
