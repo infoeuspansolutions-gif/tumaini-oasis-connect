@@ -123,7 +123,9 @@ function Home() {
       <Gallery />
       <BestPrice />
       <Testimonials />
+      <BrochurePreview />
       <Faq />
+
       <Contact />
       <Footer />
       <MobileActionBar />
@@ -688,6 +690,75 @@ function Testimonials() {
     </section>
   );
 }
+
+const BROCHURE_PATH = "/accommodation-brochure";
+const SITE = "https://tumainigardensresortisinya.co.ke";
+
+function brochureUrl() {
+  const origin = typeof window !== "undefined" ? window.location.origin : SITE;
+  return `${origin}${BROCHURE_PATH}`;
+}
+
+function brochureWhatsApp() {
+  const msg = `Hello Tumaini Gardens Isinya! I'm viewing your 2025 Accommodation Brochure (${brochureUrl()}). Please share current rates and availability so I can book.`;
+  return `https://wa.me/254759473510?text=${encodeURIComponent(msg)}`;
+}
+
+function BrochurePreview() {
+  return (
+    <section id="brochure" className="mx-auto max-w-7xl px-5 py-24">
+      <motion.div {...fadeUp} className="text-center">
+        <p className="text-sm uppercase tracking-[0.3em] text-accent">Rates &amp; rooms</p>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl">2025 Accommodation Brochure</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          Preview our full accommodation brochure below — cottages, family rooms, conference and event
+          rates. Share it on WhatsApp or call reservations for instant confirmation.
+        </p>
+      </motion.div>
+
+      <motion.div {...fadeUp} className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
+        <div className="overflow-hidden rounded-3xl border bg-card shadow-glow">
+          <object data={BROCHURE_PATH} type="application/pdf" className="h-[36rem] w-full">
+            <iframe title="Tumaini Gardens 2025 Accommodation Brochure" src={BROCHURE_PATH} className="h-[36rem] w-full" loading="lazy" />
+          </object>
+        </div>
+
+        <div className="flex flex-col gap-3 rounded-3xl border bg-muted/40 p-6">
+          <p className="font-display text-2xl">Request bookings &amp; rates</p>
+          <p className="text-sm text-muted-foreground">Instant replies on WhatsApp, 7 days a week.</p>
+
+          <a
+            href={brochureWhatsApp()}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 font-semibold text-white hover:opacity-90"
+          >
+            <MessageIcon /> Share brochure on WhatsApp
+          </a>
+
+          <a
+            href="tel:+254759473510"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90"
+          >
+            <Phone className="h-4 w-4" /> Call +254 759 473 510
+          </a>
+
+          <a
+            href={BROCHURE_PATH}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-primary px-5 py-3 font-semibold text-primary hover:bg-primary/10"
+          >
+            <Download className="h-4 w-4" /> Download PDF
+          </a>
+
+          <p className="mt-2 text-xs text-muted-foreground break-all">{SITE}{BROCHURE_PATH}</p>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
 
 function Contact() {
   return (
