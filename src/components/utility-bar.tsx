@@ -409,8 +409,10 @@ export function UtilityBar() {
         <div className="mx-auto flex h-9 max-w-7xl items-center gap-2 overflow-x-auto overflow-y-hidden whitespace-nowrap px-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="flex shrink-0 items-center gap-2">
             <WeatherWidget />
-            <span className="hidden sm:inline text-xs opacity-80">🌿 Karibu Tumaini Gardens</span>
+            <LiveClock />
+            <span className="hidden lg:inline text-xs opacity-80">🌿 Karibu Tumaini Gardens</span>
           </div>
+
           <div className="ml-auto flex shrink-0 items-center gap-2">
             <VoiceGreeting />
             <GoogleSearch />
