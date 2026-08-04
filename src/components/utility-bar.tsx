@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Cloud, Sun, CloudRain, CloudSnow, Search, Volume2, VolumeX, Languages, ArrowRightLeft, Droplets, Wind } from "lucide-react";
+import { Cloud, Sun, CloudRain, CloudSnow, Search, Volume2, VolumeX, Languages, ArrowRightLeft, Droplets, Wind, Clock } from "lucide-react";
 import { useIsinyaWeather } from "@/components/weather-panel";
 
 // ---------- Weather (Open-Meteo, no key) ----------
