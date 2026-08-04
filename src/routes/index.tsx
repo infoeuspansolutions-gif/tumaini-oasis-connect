@@ -618,7 +618,21 @@ function Events() {
 }
 
 function Gallery() {
-  const photos = [imgPool, imgEntrance, imgGarden, imgRoom, imgTeam, imgPath, img4, img2, img6, img7, img1, img9];
+  const photos = [
+    { url: imgPool.url, alt: "Swimming pool at Tumaini Gardens Resort" },
+    ...gNew,
+    { url: imgEntrance.url, alt: "Entrance to Tumaini Gardens Resort, Isinya" },
+    { url: imgGarden.url, alt: "Landscaped gardens at Tumaini Gardens" },
+    { url: imgRoom.url, alt: "Guest room interior" },
+    { url: imgTeam.url, alt: "Tumaini Gardens team" },
+    { url: imgPath.url, alt: "Garden walkway" },
+    { url: img4.url, alt: "Tumaini Gardens grounds" },
+    { url: img2.url, alt: "Tumaini Gardens property view" },
+    { url: img6.url, alt: "Pool area" },
+    { url: img7.url, alt: "Event setup" },
+    { url: img1.url, alt: "Tumaini Gardens Resort view" },
+    { url: img9.url, alt: "Tumaini Gardens dining" },
+  ];
   return (
     <section id="gallery" className="mx-auto max-w-7xl px-5 py-24">
       <motion.div {...fadeUp} className="flex items-end justify-between flex-wrap gap-4">
@@ -639,7 +653,7 @@ function Gallery() {
             transition={{ duration: 0.5, delay: i * 0.05 }}
             className={`overflow-hidden rounded-2xl shadow-soft ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
           >
-            <SmartImage src={p.url} alt="Tumaini Gardens" className="h-full w-full object-cover aspect-square transition duration-700 hover:scale-110"  loading="lazy" decoding="async" />
+            <SmartImage src={p.url} alt={p.alt} className="h-full w-full object-cover aspect-square transition duration-700 hover:scale-110"  loading="lazy" decoding="async" />
           </motion.div>
         ))}
       </div>
