@@ -37,6 +37,20 @@ const imgGarden = { url: `${CDN}/__l5e/assets-v1/96471cd7-a8d5-4cda-9d64-101c984
 const imgPool = { url: `${CDN}/__l5e/assets-v1/95accc61-7d29-4561-ac3f-98b95457b149/tumaini-pool.jpg` };
 const imgPath = { url: `${CDN}/__l5e/assets-v1/98f483e1-008b-4b1c-b08f-ba41d8597964/tumaini-path.jpg` };
 
+// Latest gallery uploads
+const gNew: { url: string; alt: string }[] = [
+  { url: `${CDN}/__l5e/assets-v1/4211ae8d-83a0-42db-ad4a-bbdb939f5c2f/tumaini-g35.jpg`, alt: "Tumaini Gardens green-roofed lodge building and manicured grounds" },
+  { url: `${CDN}/__l5e/assets-v1/43a47645-1dba-44d1-b2c6-c8c0b5f7a5d7/tumaini-g30.jpg`, alt: "Guest floating in the turquoise swimming pool at Tumaini Gardens" },
+  { url: `${CDN}/__l5e/assets-v1/b8586b4e-78e0-4caf-acbf-fa498572f0c4/tumaini-g32.jpg`, alt: "Garden wedding ceremony setup with white chairs and draped arch" },
+  { url: `${CDN}/__l5e/assets-v1/bb497ac8-e0c6-43da-9de6-54abb8be0682/tumaini-g36.jpg`, alt: "Conference hall set up for a meeting at Tumaini Gardens" },
+  { url: `${CDN}/__l5e/assets-v1/87dc03f1-802d-4c72-b024-1694b4e1ca4e/tumaini-g29.jpg`, alt: "Mixed grill platter with fries, kachumbari and coleslaw" },
+  { url: `${CDN}/__l5e/assets-v1/1d6fe3ee-ab6a-43f5-bb22-a9c144967732/tumaini-g31.jpg`, alt: "Buffet service line set for an event at Tumaini Gardens" },
+  { url: `${CDN}/__l5e/assets-v1/2daae7d4-7757-466e-a587-999de8ee84ac/tumaini-g37.jpg`, alt: "Fresh orange and passion fruit platter from the resort kitchen" },
+  { url: `${CDN}/__l5e/assets-v1/bac60f67-9982-40df-bd40-3d1d55877738/tumaini-g33.jpg`, alt: "Tumaini Gardens kitchen brigade and chefs team photo" },
+  { url: `${CDN}/__l5e/assets-v1/eb733267-cebb-4808-81ee-5781384bce44/tumaini-g38.jpg`, alt: "Honeymoon room with swan towel art and rose petals" },
+  { url: `${CDN}/__l5e/assets-v1/6f855f55-c315-4a96-b4d7-8519ab838de2/tumaini-g34.jpg`, alt: "Insect hotel supporting pollinators in the organic garden" },
+];
+
 
 
 const DOMAIN = "https://tumainigardensresortisinya.co.ke";
