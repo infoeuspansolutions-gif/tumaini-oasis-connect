@@ -123,7 +123,9 @@ function Home() {
       <Gallery />
       <BestPrice />
       <Testimonials />
+      <BrochurePreview />
       <Faq />
+
       <Contact />
       <Footer />
       <MobileActionBar />
