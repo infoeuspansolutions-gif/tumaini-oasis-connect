@@ -14,7 +14,6 @@ import { Faq } from "@/components/faq";
 import { WeatherPanel } from "@/components/weather-panel";
 
 import { SmartImage } from "@/components/smart-image";
-import brochure2025 from "@/assets/brochure-2025.pdf.asset.json";
 import farm26 from "@/assets/farm-26.jpg.asset.json";
 
 // Absolute CDN origin so images load on custom domains (e.g. Vercel) that don't proxy /__l5e/
