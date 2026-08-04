@@ -132,9 +132,7 @@ function AuthPage() {
         </div>
 
         <div className="mt-8 rounded-xl bg-muted/50 p-4 text-xs text-muted-foreground">
-          <p className="font-semibold text-foreground">Recommended admin credentials</p>
-          <p className="mt-1">Email: <code>infoeuspansolutions@gmail.com</code></p>
-          <p>Password: <code>Tumaini@1234</code> (change after first sign-in)</p>
+          <p className="font-semibold text-foreground">Admin Registration</p>
           <p className="mt-2 italic">The first account created here is automatically granted admin rights.</p>
         </div>
       </motion.div>
