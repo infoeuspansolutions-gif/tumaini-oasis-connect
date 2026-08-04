@@ -368,7 +368,35 @@ function LanguageSelector() {
   );
 }
 
+// ---------- Real-time clock (Nairobi / EAT) ----------
+function LiveClock() {
+  const [now, setNow] = useState<Date | null>(null);
+  useEffect(() => {
+    setNow(new Date());
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const time = now
+    ? now.toLocaleTimeString("en-GB", { timeZone: "Africa/Nairobi", hour: "2-digit", minute: "2-digit", second: "2-digit" })
+    : "--:--:--";
+  const date = now
+    ? now.toLocaleDateString("en-GB", { timeZone: "Africa/Nairobi", weekday: "short", day: "numeric", month: "short" })
+    : "";
+  return (
+    <div
+      className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-white"
+      title="Live local time in Isinya, Kenya (EAT)"
+      aria-label={`Local time in Isinya ${time}`}
+    >
+      <Clock className="h-4 w-4" />
+      <span className="text-xs font-bold tabular-nums">{time}</span>
+      <span className="hidden md:inline text-[10px] font-semibold opacity-80">{date} · EAT</span>
+    </div>
+  );
+}
+
 export function UtilityBar() {
+
   return (
     <>
       {/* Hide Google Translate top banner + tooltip */}
