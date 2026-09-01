@@ -899,13 +899,15 @@ function EuspanSolutions() {
             Visit Euspan Solutions <ExternalLink className="h-4 w-4" />
           </a>
           <a
-            href="https://wa.me/254769722940?text=Hello%20Euspan%20Solutions%2C%20I%20need%20a%20website%20or%20software%20solution."
+            href={EUSPAN_WA}
+            onClick={openWhatsApp(EUSPAN_WA)}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white hover:opacity-90"
           >
             <MessageIcon /> Request a quote
           </a>
+
           <a
             href="tel:+254769722940"
             className="inline-flex min-h-[48px] items-center gap-2 rounded-full border-2 border-primary px-6 py-3 font-bold text-primary hover:bg-primary/10"
