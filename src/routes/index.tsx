@@ -706,6 +706,25 @@ function brochureWhatsApp() {
   return `https://wa.me/254759473510?text=${encodeURIComponent(msg)}`;
 }
 
+const EUSPAN_WA = "https://wa.me/254769722940?text=" +
+  encodeURIComponent("Hello Euspan Solutions, I need a website or software solution.");
+
+/** Opens WhatsApp reliably, including inside sandboxed preview iframes. */
+export function openWhatsApp(url: string) {
+  return (e: React.MouseEvent) => {
+    e.preventDefault();
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (!win) {
+      try {
+        window.top!.location.href = url;
+      } catch {
+        window.location.href = url;
+      }
+    }
+  };
+}
+
+
 function BrochurePreview() {
   return (
     <section id="brochure" className="mx-auto max-w-7xl px-5 py-24">
@@ -880,13 +899,15 @@ function EuspanSolutions() {
             Visit Euspan Solutions <ExternalLink className="h-4 w-4" />
           </a>
           <a
-            href="https://wa.me/254769722940?text=Hello%20Euspan%20Solutions%2C%20I%20need%20a%20website%20or%20software%20solution."
+            href={EUSPAN_WA}
+            onClick={openWhatsApp(EUSPAN_WA)}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white hover:opacity-90"
           >
             <MessageIcon /> Request a quote
           </a>
+
           <a
             href="tel:+254769722940"
             className="inline-flex min-h-[48px] items-center gap-2 rounded-full border-2 border-primary px-6 py-3 font-bold text-primary hover:bg-primary/10"
@@ -982,13 +1003,15 @@ function Footer() {
           </div>
           <div className="flex flex-wrap gap-3 justify-self-start md:justify-self-end">
             <a
-              href="https://wa.me/254769722940?text=Hello%20Euspan%20Solutions%2C%20I%20need%20a%20website%20or%20software%20solution."
+              href={EUSPAN_WA}
+              onClick={openWhatsApp(EUSPAN_WA)}
               target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white hover:opacity-90"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white hover:opacity-90"
             >
               <MessageIcon /> Get a website
             </a>
+
             <Link to="/admin" className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-2.5 text-sm font-bold">
               🔐 Admin Portal
             </Link>
