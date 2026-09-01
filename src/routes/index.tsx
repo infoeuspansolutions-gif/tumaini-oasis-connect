@@ -128,6 +128,7 @@ function Home() {
       <Faq />
 
       <Contact />
+      <EuspanSolutions />
       <Footer />
       <MobileActionBar />
       <WhatsAppButton />
