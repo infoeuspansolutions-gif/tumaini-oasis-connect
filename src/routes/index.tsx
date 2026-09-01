@@ -1001,13 +1001,15 @@ function Footer() {
           </div>
           <div className="flex flex-wrap gap-3 justify-self-start md:justify-self-end">
             <a
-              href="https://wa.me/254769722940?text=Hello%20Euspan%20Solutions%2C%20I%20need%20a%20website%20or%20software%20solution."
+              href={EUSPAN_WA}
+              onClick={openWhatsApp(EUSPAN_WA)}
               target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white hover:opacity-90"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white hover:opacity-90"
             >
               <MessageIcon /> Get a website
             </a>
+
             <Link to="/admin" className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-2.5 text-sm font-bold">
               🔐 Admin Portal
             </Link>
