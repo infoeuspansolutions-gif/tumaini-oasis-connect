@@ -706,6 +706,25 @@ function brochureWhatsApp() {
   return `https://wa.me/254759473510?text=${encodeURIComponent(msg)}`;
 }
 
+const EUSPAN_WA = "https://wa.me/254769722940?text=" +
+  encodeURIComponent("Hello Euspan Solutions, I need a website or software solution.");
+
+/** Opens WhatsApp reliably, including inside sandboxed preview iframes. */
+export function openWhatsApp(url: string) {
+  return (e: React.MouseEvent) => {
+    e.preventDefault();
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (!win) {
+      try {
+        window.top!.location.href = url;
+      } catch {
+        window.location.href = url;
+      }
+    }
+  };
+}
+
+
 function BrochurePreview() {
   return (
     <section id="brochure" className="mx-auto max-w-7xl px-5 py-24">
