@@ -959,28 +959,42 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 bg-black/20">
-        <div className="mx-auto max-w-7xl px-5 py-8 grid gap-6 md:grid-cols-[1fr_auto] items-center">
-          <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-accent via-primary to-leaf text-primary-foreground font-display text-2xl font-bold shadow-glow">
+      <div className="border-t border-white/10 bg-gradient-to-r from-black/30 via-primary/40 to-black/30">
+        <div className="mx-auto max-w-7xl px-5 py-10 grid gap-8 md:grid-cols-[1fr_auto] items-center">
+          <div className="flex flex-col md:flex-row md:items-center gap-5">
+            <motion.div
+              whileHover={{ rotate: 3, scale: 1.05 }}
+              className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-accent via-primary to-leaf text-primary-foreground font-display text-3xl font-bold shadow-glow ring-4 ring-white/10"
+            >
               ES
-            </div>
+            </motion.div>
             <div>
-              <p className="text-xs uppercase tracking-widest opacity-70">Website designed & developed by</p>
-              <p className="font-display text-xl font-bold">Emmanuel Ndunda</p>
-              <p className="text-sm opacity-90">Developer / CEO — <strong>Euspan Solutions</strong> · Best ICT & Digital Providers</p>
-              <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-                <a href="tel:+254769722940" className="underline hover:text-accent">📞 0769 722 940</a>
-                <a href="mailto:infoeuspansolutions@gmail.com" className="underline hover:text-accent">✉ infoeuspansolutions@gmail.com</a>
-                <a href="https://www.euspansolutions.co.ke/" target="_blank" rel="noreferrer" className="underline hover:text-accent">🌐 euspansolutions.co.ke</a>
+              <p className="text-xs uppercase tracking-[0.2em] opacity-80">Proudly designed, developed & powered by</p>
+              <p className="font-display text-2xl font-bold">Emmanuel Ndunda — Developer / CEO</p>
+              <p className="text-base opacity-95"><strong>Euspan Solutions</strong> · Best ICT & Digital Providers in Kenya</p>
+              <p className="mt-1 text-sm opacity-90 max-w-xl">We build world-class websites, custom software, mobile apps & AI chatbots tailored to your need or demand.</p>
+              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
+                <a href="tel:+254769722940" className="inline-flex items-center gap-1.5 underline hover:text-accent">📞 0769 722 940</a>
+                <a href="mailto:infoeuspansolutions@gmail.com" className="inline-flex items-center gap-1.5 underline hover:text-accent">✉ infoeuspansolutions@gmail.com</a>
+                <a href="https://www.euspansolutions.co.ke/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 underline hover:text-accent">🌐 euspansolutions.co.ke</a>
               </div>
             </div>
           </div>
-          <Link to="/admin" className="justify-self-start md:justify-self-end inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 text-sm">
-            🔐 Admin Portal
-          </Link>
+          <div className="flex flex-wrap gap-3 justify-self-start md:justify-self-end">
+            <a
+              href="https://wa.me/254769722940?text=Hello%20Euspan%20Solutions%2C%20I%20need%20a%20website%20or%20software%20solution."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white hover:opacity-90"
+            >
+              <MessageIcon /> Get a website
+            </a>
+            <Link to="/admin" className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-2.5 text-sm font-bold">
+              🔐 Admin Portal
+            </Link>
+          </div>
         </div>
-        <div className="mx-auto max-w-7xl px-5 pb-6 text-xs opacity-70 text-center md:text-left">
+        <div className="mx-auto max-w-7xl px-5 pb-8 text-xs opacity-80 text-center md:text-left">
           © {new Date().getFullYear()} Tumaini Gardens Resort · Isinya, Kajiado · <a href="https://tumainigardensresortisinya.co.ke" className="underline">tumainigardensresortisinya.co.ke</a>
         </div>
       </div>
