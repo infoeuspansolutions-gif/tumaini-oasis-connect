@@ -135,6 +135,16 @@ function AuthPage() {
           <p className="font-semibold text-foreground">Admin Registration</p>
           <p className="mt-2 italic">The first account created here is automatically granted admin rights.</p>
         </div>
+
+        <div className="mt-6 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-4 text-center">
+          <p className="text-xs uppercase tracking-widest text-primary font-semibold">Powered by</p>
+          <p className="mt-1 font-display text-lg font-bold text-foreground">Euspan Solutions</p>
+          <p className="text-xs text-muted-foreground">Best websites, software & digital solutions in Kenya</p>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs">
+            <a href="tel:+254769722940" className="text-primary hover:underline">0769 722 940</a>
+            <a href="https://www.euspansolutions.co.ke/" target="_blank" rel="noreferrer" className="text-primary hover:underline">euspansolutions.co.ke</a>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

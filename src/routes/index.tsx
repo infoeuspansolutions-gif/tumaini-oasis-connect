@@ -4,6 +4,7 @@ import {
   MapPin, Phone, Users, Calendar, Wifi, Car, Utensils, Waves,
   Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download, Play,
   Leaf, Shield, ChefHat, Wrench, BedDouble, HandHeart, Facebook, Instagram, Lock,
+  Code, Globe, Smartphone, Rocket, CheckCircle, ArrowUpRight, ExternalLink,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton, CallButton } from "@/components/floating-widgets";
@@ -127,6 +128,7 @@ function Home() {
       <Faq />
 
       <Contact />
+      <EuspanSolutions />
       <Footer />
       <MobileActionBar />
       <WhatsAppButton />
@@ -824,6 +826,100 @@ function MessageIcon() {
   return <svg viewBox="0 0 32 32" className="h-5 w-5" fill="currentColor"><path d="M16 3C9 3 3 8 3 14c0 3 1 5 3 7v6l5-3c2 1 3 1 5 1 7 0 13-5 13-11S23 3 16 3z"/></svg>;
 }
 
+function EuspanSolutions() {
+  const services = [
+    { icon: Globe, t: "Website Development", d: "Stunning, fast, mobile-first websites that turn visitors into customers." },
+    { icon: Code, t: "Custom Software", d: "Tailored systems, portals & automation built to match your exact workflow." },
+    { icon: Smartphone, t: "Mobile & Web Apps", d: "Progressive apps that work smoothly on every device and screen size." },
+    { icon: Rocket, t: "ICT & Digital Solutions", d: "Cloud, branding, SEO, AI chatbots and digital strategy under one roof." },
+  ];
+  return (
+    <section className="relative overflow-hidden border-y bg-gradient-to-br from-background via-secondary/50 to-background py-24">
+      <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl animate-blob" />
+      <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-accent/10 blur-3xl animate-blob" style={{ animationDelay: "2s" }} />
+      <div className="relative mx-auto max-w-7xl px-5">
+        <motion.div {...fadeUp} className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+            <Sparkles className="h-4 w-4" /> Digital Partner
+          </span>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-tight">
+            Websites & software that match <br className="hidden md:block" />
+            <span className="text-gradient-leaf">your need or demand</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/80">
+            This website was proudly designed and developed by <strong>Euspan Solutions</strong> — Kenya's best ICT & digital providers, led by Emmanuel Ndunda (Developer/CEO).
+          </p>
+        </motion.div>
+
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s, i) => (
+            <motion.div
+              key={s.t}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="rounded-2xl border bg-card p-6 shadow-soft hover:shadow-glow transition"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-leaf text-primary-foreground">
+                <s.icon className="h-6 w-6" />
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold">{s.t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div {...fadeUp} className="mt-14 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://www.euspansolutions.co.ke/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-gradient-leaf px-6 py-3 font-bold text-primary-foreground shadow-glow hover:opacity-90"
+          >
+            Visit Euspan Solutions <ExternalLink className="h-4 w-4" />
+          </a>
+          <a
+            href="https://wa.me/254769722940?text=Hello%20Euspan%20Solutions%2C%20I%20need%20a%20website%20or%20software%20solution."
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 font-bold text-white hover:opacity-90"
+          >
+            <MessageIcon /> Request a quote
+          </a>
+          <a
+            href="tel:+254769722940"
+            className="inline-flex min-h-[48px] items-center gap-2 rounded-full border-2 border-primary px-6 py-3 font-bold text-primary hover:bg-primary/10"
+          >
+            <Phone className="h-4 w-4" /> 0769 722 940
+          </a>
+        </motion.div>
+
+        <motion.div {...fadeUp} className="mt-10 rounded-3xl bg-primary p-8 text-primary-foreground md:p-10">
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+            <div className="text-center md:text-left">
+              <p className="font-display text-2xl font-bold">Ready for a world-class website?</p>
+              <p className="mt-2 opacity-90">Euspan Solutions builds brands, systems and digital experiences that sell.</p>
+              <ul className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm opacity-90 md:justify-start">
+                <li className="flex items-center gap-1.5"><CheckCircle className="h-4 w-4 text-accent" /> SEO optimized</li>
+                <li className="flex items-center gap-1.5"><CheckCircle className="h-4 w-4 text-accent" /> Mobile responsive</li>
+                <li className="flex items-center gap-1.5"><CheckCircle className="h-4 w-4 text-accent" /> AI & chatbot ready</li>
+                <li className="flex items-center gap-1.5"><CheckCircle className="h-4 w-4 text-accent" /> Fast & secure</li>
+              </ul>
+            </div>
+            <a
+              href="mailto:infoeuspansolutions@gmail.com"
+              className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-accent px-6 py-3 font-bold text-accent-foreground shadow-glow hover:opacity-90"
+            >
+              Start your project <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -863,28 +959,42 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 bg-black/20">
-        <div className="mx-auto max-w-7xl px-5 py-8 grid gap-6 md:grid-cols-[1fr_auto] items-center">
-          <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-accent via-primary to-leaf text-primary-foreground font-display text-2xl font-bold shadow-glow">
+      <div className="border-t border-white/10 bg-gradient-to-r from-black/30 via-primary/40 to-black/30">
+        <div className="mx-auto max-w-7xl px-5 py-10 grid gap-8 md:grid-cols-[1fr_auto] items-center">
+          <div className="flex flex-col md:flex-row md:items-center gap-5">
+            <motion.div
+              whileHover={{ rotate: 3, scale: 1.05 }}
+              className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-accent via-primary to-leaf text-primary-foreground font-display text-3xl font-bold shadow-glow ring-4 ring-white/10"
+            >
               ES
-            </div>
+            </motion.div>
             <div>
-              <p className="text-xs uppercase tracking-widest opacity-70">Website designed & developed by</p>
-              <p className="font-display text-xl font-bold">Emmanuel Ndunda</p>
-              <p className="text-sm opacity-90">Developer / CEO — <strong>Euspan Solutions</strong> · Best ICT & Digital Providers</p>
-              <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-                <a href="tel:+254769722940" className="underline hover:text-accent">📞 0769 722 940</a>
-                <a href="mailto:infoeuspansolutions@gmail.com" className="underline hover:text-accent">✉ infoeuspansolutions@gmail.com</a>
-                <a href="https://www.euspansolutions.co.ke/" target="_blank" rel="noreferrer" className="underline hover:text-accent">🌐 euspansolutions.co.ke</a>
+              <p className="text-xs uppercase tracking-[0.2em] opacity-80">Proudly designed, developed & powered by</p>
+              <p className="font-display text-2xl font-bold">Emmanuel Ndunda — Developer / CEO</p>
+              <p className="text-base opacity-95"><strong>Euspan Solutions</strong> · Best ICT & Digital Providers in Kenya</p>
+              <p className="mt-1 text-sm opacity-90 max-w-xl">We build world-class websites, custom software, mobile apps & AI chatbots tailored to your need or demand.</p>
+              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
+                <a href="tel:+254769722940" className="inline-flex items-center gap-1.5 underline hover:text-accent">📞 0769 722 940</a>
+                <a href="mailto:infoeuspansolutions@gmail.com" className="inline-flex items-center gap-1.5 underline hover:text-accent">✉ infoeuspansolutions@gmail.com</a>
+                <a href="https://www.euspansolutions.co.ke/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 underline hover:text-accent">🌐 euspansolutions.co.ke</a>
               </div>
             </div>
           </div>
-          <Link to="/admin" className="justify-self-start md:justify-self-end inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 text-sm">
-            🔐 Admin Portal
-          </Link>
+          <div className="flex flex-wrap gap-3 justify-self-start md:justify-self-end">
+            <a
+              href="https://wa.me/254769722940?text=Hello%20Euspan%20Solutions%2C%20I%20need%20a%20website%20or%20software%20solution."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white hover:opacity-90"
+            >
+              <MessageIcon /> Get a website
+            </a>
+            <Link to="/admin" className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-2.5 text-sm font-bold">
+              🔐 Admin Portal
+            </Link>
+          </div>
         </div>
-        <div className="mx-auto max-w-7xl px-5 pb-6 text-xs opacity-70 text-center md:text-left">
+        <div className="mx-auto max-w-7xl px-5 pb-8 text-xs opacity-80 text-center md:text-left">
           © {new Date().getFullYear()} Tumaini Gardens Resort · Isinya, Kajiado · <a href="https://tumainigardensresortisinya.co.ke" className="underline">tumainigardensresortisinya.co.ke</a>
         </div>
       </div>
