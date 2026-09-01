@@ -4,6 +4,7 @@ import {
   MapPin, Phone, Users, Calendar, Wifi, Car, Utensils, Waves,
   Trees, Building2, Heart, Star, ChevronRight, Sparkles, Download, Play,
   Leaf, Shield, ChefHat, Wrench, BedDouble, HandHeart, Facebook, Instagram, Lock,
+  Code, Globe, Smartphone, Rocket, CheckCircle, ArrowUpRight, ExternalLink,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { AiChatWidget, WhatsAppButton, CallButton } from "@/components/floating-widgets";
