@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as OrganicFarmingRouteImport } from './routes/organic-farming'
+import { Route as BookingRouteImport } from './routes/booking'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccommodationBrochureRouteImport } from './routes/accommodation-brochure'
@@ -26,6 +27,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const OrganicFarmingRoute = OrganicFarmingRouteImport.update({
   id: '/organic-farming',
   path: '/organic-farming',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/accommodation-brochure': typeof AccommodationBrochureRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
+  '/booking': typeof BookingRoute
   '/organic-farming': typeof OrganicFarmingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/accommodation-brochure': typeof AccommodationBrochureRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
+  '/booking': typeof BookingRoute
   '/organic-farming': typeof OrganicFarmingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/settings': typeof AdminSettingsRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/accommodation-brochure': typeof AccommodationBrochureRoute
   '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
+  '/booking': typeof BookingRoute
   '/organic-farming': typeof OrganicFarmingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin_/settings': typeof AdminSettingsRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/accommodation-brochure'
     | '/admin'
     | '/auth'
+    | '/booking'
     | '/organic-farming'
     | '/sitemap.xml'
     | '/admin/settings'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/accommodation-brochure'
     | '/admin'
     | '/auth'
+    | '/booking'
     | '/organic-farming'
     | '/sitemap.xml'
     | '/admin/settings'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/accommodation-brochure'
     | '/admin'
     | '/auth'
+    | '/booking'
     | '/organic-farming'
     | '/sitemap.xml'
     | '/admin_/settings'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AccommodationBrochureRoute: typeof AccommodationBrochureRoute
   AdminRoute: typeof AdminRoute
   AuthRoute: typeof AuthRoute
+  BookingRoute: typeof BookingRoute
   OrganicFarmingRoute: typeof OrganicFarmingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/organic-farming'
       fullPath: '/organic-farming'
       preLoaderRoute: typeof OrganicFarmingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccommodationBrochureRoute: AccommodationBrochureRoute,
   AdminRoute: AdminRoute,
   AuthRoute: AuthRoute,
+  BookingRoute: BookingRoute,
   OrganicFarmingRoute: OrganicFarmingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminSettingsRoute: AdminSettingsRoute,

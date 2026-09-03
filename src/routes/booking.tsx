@@ -376,12 +376,12 @@ function BookingDetails({
   const submitFn = useServerFn(createBookingRequest);
   const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({
-    guest_name: "";
-    guest_email: "";
-    guest_phone: "";
-    adults: 1;
-    children: 0;
-    notes: "";
+    guest_name: "",
+    guest_email: "",
+    guest_phone: "",
+    adults: 1,
+    children: 0,
+    notes: "",
   });
 
   const total = (room.price_per_night || 0) * nights;
