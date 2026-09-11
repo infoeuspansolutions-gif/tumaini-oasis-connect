@@ -16,7 +16,7 @@ import { WeatherPanel } from "@/components/weather-panel";
 
 import { SmartImage } from "@/components/smart-image";
 import farm26 from "@/assets/farm-26.jpg.asset.json";
-import euspanLogo from "@/assets/euspan-logo.png.asset.json";
+
 
 // Absolute CDN origin so images load on custom domains (e.g. Vercel) that don't proxy /__l5e/
 const CDN = "https://tumainigardensresortisinya.lovable.app";
