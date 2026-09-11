@@ -21,6 +21,7 @@ import farm26 from "@/assets/farm-26.jpg.asset.json";
 // Absolute CDN origin so images load on custom domains (e.g. Vercel) that don't proxy /__l5e/
 const CDN = "https://tumainigardensresortisinya.lovable.app";
 const logo = { url: `${CDN}/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png` };
+const euspanLogo = { url: `${CDN}/__l5e/assets-v1/fead87ca-2bc3-41eb-9466-6eea5a2761a1/euspan-logo.png` };
 const img1 = { url: `${CDN}/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg` };
 const img2 = { url: `${CDN}/__l5e/assets-v1/c30c5df9-2f91-4d48-b171-228316c0156d/tumaini-2.jpg` };
 const img3 = { url: `${CDN}/__l5e/assets-v1/058c1814-74f6-4099-bdfd-1b3b51f1daaa/tumaini-3.jpg` };
