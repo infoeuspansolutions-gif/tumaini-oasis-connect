@@ -995,12 +995,16 @@ function Footer() {
       <div className="border-t border-white/10 bg-gradient-to-r from-black/30 via-primary/40 to-black/30">
         <div className="mx-auto max-w-7xl px-5 py-10 grid gap-8 md:grid-cols-[1fr_auto] items-center">
           <div className="flex flex-col md:flex-row md:items-center gap-5">
-            <motion.div
+            <motion.img
+              src={euspanLogo.url}
+              alt="Euspan Solutions logo"
+              width={80}
+              height={80}
+              loading="lazy"
+              decoding="async"
               whileHover={{ rotate: 3, scale: 1.05 }}
-              className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-accent via-primary to-leaf text-primary-foreground font-display text-3xl font-bold shadow-glow ring-4 ring-white/10"
-            >
-              ES
-            </motion.div>
+              className="h-20 w-20 shrink-0 rounded-2xl bg-white object-contain p-1.5 shadow-glow ring-4 ring-white/10"
+            />
             <div>
               <p className="text-xs uppercase tracking-[0.2em] opacity-80">Proudly designed, developed & powered by</p>
               <p className="font-display text-2xl font-bold">Emmanuel Ndunda — Developer / CEO</p>
