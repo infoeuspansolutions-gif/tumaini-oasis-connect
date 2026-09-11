@@ -17,9 +17,11 @@ import { WeatherPanel } from "@/components/weather-panel";
 import { SmartImage } from "@/components/smart-image";
 import farm26 from "@/assets/farm-26.jpg.asset.json";
 
+
 // Absolute CDN origin so images load on custom domains (e.g. Vercel) that don't proxy /__l5e/
 const CDN = "https://tumainigardensresortisinya.lovable.app";
 const logo = { url: `${CDN}/__l5e/assets-v1/661a7015-8b99-493f-af5d-6a372bc792c2/tumaini-logo.png` };
+const euspanLogo = { url: `${CDN}/__l5e/assets-v1/fead87ca-2bc3-41eb-9466-6eea5a2761a1/euspan-logo.png` };
 const img1 = { url: `${CDN}/__l5e/assets-v1/69123ad3-dccf-473d-8d2b-3e22c66b245c/tumaini1.jpg` };
 const img2 = { url: `${CDN}/__l5e/assets-v1/c30c5df9-2f91-4d48-b171-228316c0156d/tumaini-2.jpg` };
 const img3 = { url: `${CDN}/__l5e/assets-v1/058c1814-74f6-4099-bdfd-1b3b51f1daaa/tumaini-3.jpg` };
@@ -861,6 +863,16 @@ function EuspanSolutions() {
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
             <Sparkles className="h-4 w-4" /> Digital Partner
           </span>
+          <motion.img
+            src={euspanLogo.url}
+            alt="Euspan Solutions logo — ICT and digital solutions company in Kenya"
+            width={144}
+            height={144}
+            loading="lazy"
+            decoding="async"
+            whileHover={{ scale: 1.06, rotate: 2 }}
+            className="mx-auto mt-6 h-28 w-28 md:h-36 md:w-36 rounded-full bg-white object-contain p-2 shadow-glow ring-4 ring-primary/15"
+          />
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-tight">
             Websites & software that match <br className="hidden md:block" />
             <span className="text-gradient-leaf">your need or demand</span>
@@ -983,12 +995,16 @@ function Footer() {
       <div className="border-t border-white/10 bg-gradient-to-r from-black/30 via-primary/40 to-black/30">
         <div className="mx-auto max-w-7xl px-5 py-10 grid gap-8 md:grid-cols-[1fr_auto] items-center">
           <div className="flex flex-col md:flex-row md:items-center gap-5">
-            <motion.div
+            <motion.img
+              src={euspanLogo.url}
+              alt="Euspan Solutions logo"
+              width={80}
+              height={80}
+              loading="lazy"
+              decoding="async"
               whileHover={{ rotate: 3, scale: 1.05 }}
-              className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-accent via-primary to-leaf text-primary-foreground font-display text-3xl font-bold shadow-glow ring-4 ring-white/10"
-            >
-              ES
-            </motion.div>
+              className="h-20 w-20 shrink-0 rounded-2xl bg-white object-contain p-1.5 shadow-glow ring-4 ring-white/10"
+            />
             <div>
               <p className="text-xs uppercase tracking-[0.2em] opacity-80">Proudly designed, developed & powered by</p>
               <p className="font-display text-2xl font-bold">Emmanuel Ndunda — Developer / CEO</p>
