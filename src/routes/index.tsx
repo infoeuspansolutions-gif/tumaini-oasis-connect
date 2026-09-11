@@ -993,6 +993,7 @@ function Footer() {
               <p className="text-xs uppercase tracking-[0.2em] opacity-80">Proudly designed, developed & powered by</p>
               <p className="font-display text-2xl font-bold">Emmanuel Ndunda — Developer / CEO</p>
               <p className="text-base opacity-95"><strong>Euspan Solutions</strong> · Best ICT & Digital Providers in Kenya</p>
+              <p className="mt-1 text-sm opacity-90 max-w-xl">The tumainigardensresortisinya.co.ke website, booking software and AI assistant were developed by the same team that designed it — Euspan Solutions.</p>
               <p className="mt-1 text-sm opacity-90 max-w-xl">We build world-class websites, custom software, mobile apps & AI chatbots tailored to your need or demand.</p>
               <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium">
                 <a href="tel:+254769722940" className="inline-flex items-center gap-1.5 underline hover:text-accent">📞 0769 722 940</a>
