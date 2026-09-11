@@ -863,6 +863,16 @@ function EuspanSolutions() {
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
             <Sparkles className="h-4 w-4" /> Digital Partner
           </span>
+          <motion.img
+            src={euspanLogo.url}
+            alt="Euspan Solutions logo — ICT and digital solutions company in Kenya"
+            width={144}
+            height={144}
+            loading="lazy"
+            decoding="async"
+            whileHover={{ scale: 1.06, rotate: 2 }}
+            className="mx-auto mt-6 h-28 w-28 md:h-36 md:w-36 rounded-full bg-white object-contain p-2 shadow-glow ring-4 ring-primary/15"
+          />
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-tight">
             Websites & software that match <br className="hidden md:block" />
             <span className="text-gradient-leaf">your need or demand</span>
