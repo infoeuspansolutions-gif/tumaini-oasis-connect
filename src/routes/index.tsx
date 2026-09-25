@@ -809,11 +809,11 @@ function Contact() {
                 <p className="font-medium group-hover:text-primary">Chat with us instantly</p>
               </div>
             </a>
-            <a href="mailto:warugimccreadie@tumainigardens.com" className="flex items-center gap-4 group">
+            <a href="mailto:tumainigardensresort@gmail.com" className="flex items-center gap-4 group">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-leaf text-primary-foreground font-bold">@</span>
               <div className="min-w-0">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Email</p>
-                <p className="font-medium group-hover:text-primary break-all">warugimccreadie@tumainigardens.com</p>
+                <p className="font-medium group-hover:text-primary break-all">tumainigardensresort@gmail.com</p>
               </div>
             </a>
             <div className="flex items-center gap-4">
