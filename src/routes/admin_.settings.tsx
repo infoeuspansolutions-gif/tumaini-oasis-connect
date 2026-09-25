@@ -28,7 +28,7 @@ const DEFAULT_SETTINGS: Settings = {
   tagline: "Serene garden lodge & event venue in Kajiado",
   defaultLanguage: "en",
   whatsappNumber: "+254759473510",
-  contactEmail: "info@tumainigardens.co.ke",
+  contactEmail: "tumainigardensresort@gmail.com",
   showWelcomeRobot: true,
   enableVoiceGreeting: true,
   enableChatbot: true,
